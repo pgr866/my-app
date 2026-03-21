@@ -1,0 +1,14 @@
+services:
+  app:
+    build: .
+    container_name: my-app
+    volumes:
+      - .:/app
+      - node-cache:/app/node_modules
+      - next-cache:/app/.next
+    ports:
+      - "3000:3000"
+
+volumes:
+  node-cache:
+  next-cache:
