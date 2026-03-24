@@ -1,6 +1,6 @@
 FROM node:24-alpine
 WORKDIR /app
-RUN apk add --no-cache bash git openssh libc6-compat
+RUN apk add --no-cache bash git libc6-compat
 ENV SHELL=/bin/bash \
     NEXT_TELEMETRY_DISABLED=1
 COPY package*.json source.config.ts ./
