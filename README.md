@@ -1,6 +1,6 @@
 <div align="center">
 
-# Hi there 👋, I'm Pablo ![GitHub followers](https://img.shields.io/github/followers/pgr866?style=social) ![Profile views](https://komarev.com/ghpvc/?username=pgr866)
+# Hi there 👋, I'm Pablo
 
 [![DevOps & Cloud Engineer](https://readme-typing-svg.herokuapp.com/?font=Geist+Mono&weight=500&size=20&pause=1000&center=true&vCenter=true&width=560&height=50&color=7D8590&lines=DevOps+%26+Cloud+Engineer;Linux+%7C+Git+%7C+Python;GitHub+Actions+%7C+Jenkins;Terraform+%7C+Azure+%7C+GCP;Docker+%7C+Kubernetes;Prometheus+%7C+Grafana;Always+learning+and+improving)](https://github.com/pgr866)
 </div>
@@ -15,7 +15,7 @@
 🚩 Interested in infrastructure-as-code, cloud architecture, and system performance optimization
 ```
 
-# 🛠️Personal Projects
+# 🛠️Personal Projects ![GitHub followers](https://img.shields.io/github/followers/pgr866?style=social) ![Profile views](https://komarev.com/ghpvc/?username=pgr866)
 Currently working on personal projects to enhance my skills in cloud automation, infrastructure-as-code, and scalable architectures. Stay tuned!
 
 Some ideas I’m exploring:
@@ -33,7 +33,8 @@ Some ideas I’m exploring:
 [![Git](assets/git.svg)](https://github.com/pgr866)
 &nbsp;&nbsp;&nbsp;
 [![Python](assets/python.svg)](https://github.com/pgr866)
-&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;<!-- [![GO](assets/go.svg)](https://github.com/pgr866)
+&nbsp;&nbsp;&nbsp; -->
 [![Docker](assets/docker.svg)](https://github.com/pgr866)
 &nbsp;&nbsp;&nbsp;
 [![Kubernetes](assets/kubernetes.svg)](https://github.com/pgr866)

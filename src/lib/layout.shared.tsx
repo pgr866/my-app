@@ -11,7 +11,19 @@ export const gitConfig = {
 export function baseOptions(): BaseLayoutProps {
   return {
     nav: {
-      title: 'Pablo Gómez Rivas',
+      title: (
+        <>
+          <span
+            aria-hidden
+            className="h-[22px] aspect-[7/10] bg-current me-2"
+            style={{
+              mask: `url(${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/icon.svg) center / contain no-repeat`,
+              WebkitMask: `url(${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/icon.svg) center / contain no-repeat`,
+            }}
+          />
+          Pablo Gómez Rivas
+        </>
+      ),
     },
     links: [
       {
@@ -43,7 +55,7 @@ export function baseOptions(): BaseLayoutProps {
         label: 'Discord',
         text: 'Discord',
         url: 'https://discordapp.com/users/689848538859044923/',
-        icon: <FaDiscord className="scale-[1.05]" />,
+        icon: <FaDiscord className="scale-[1.08]" />,
         external: true,
       },
       {
@@ -51,7 +63,7 @@ export function baseOptions(): BaseLayoutProps {
         label: 'Email',
         text: 'Email',
         url: 'mailto:pgr866@gmail.com',
-        icon: <Mail className="scale-[1.05]" />,
+        icon: <Mail className="scale-[1.08]" />,
       },
     ],
   };
