@@ -9,9 +9,11 @@ export default function Layout({ children }: LayoutProps<'/'>) {
   return (
     <HomeLayout
       {...options}
+      className="[&_#nd-nav_a_svg]:mx-1"
       themeSwitch={{ enabled: false }}
       searchToggle={{ enabled: false }}
       links={[
+        { text: 'Docs', url: '/docs' },
         ...links,
         { type: 'custom', secondary: true, children: <ThemeSwitch className="shrink-0" /> },
         {

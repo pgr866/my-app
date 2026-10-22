@@ -1,45 +1,81 @@
-# my-app
+<div align="center">
 
-This is a Next.js application generated with
-[Create Fumadocs](https://github.com/fuma-nama/fumadocs).
+# Hi there 👋, I'm Pablo ![GitHub followers](https://img.shields.io/github/followers/pgr866?style=social) ![Profile views](https://komarev.com/ghpvc/?username=pgr866)
 
-Run development server:
+[![DevOps & Cloud Engineer](https://readme-typing-svg.herokuapp.com/?font=Geist+Mono&weight=500&size=20&pause=1000&center=true&vCenter=true&width=560&height=50&color=7D8590&lines=DevOps+%26+Cloud+Engineer;Linux+%7C+Git+%7C+Python;GitHub+Actions+%7C+Jenkins;Terraform+%7C+Azure+%7C+GCP;Docker+%7C+Kubernetes;Prometheus+%7C+Grafana;Always+learning+and+improving)](https://github.com/pgr866)
+</div>
 
-```bash
-npm run dev
-# or
-pnpm dev
-# or
-yarn dev
+```
+💻 I am developing my skills as a DevOps & Cloud Engineer
+🎯 Enthusiastic about cloud technologies and automation tools
+📚 Bachelor’s in Software Engineering | Master's in Web/Mobile Development with cloud focus
+📝 I have a strong interest in designing scalable cloud architectures and optimizing CI/CD pipelines
+🔭 Working on personal projects that improve cloud deployment, monitoring, and automation workflows
+🌱 Focusing on learning how to streamline operations and improve system reliability for end-users
+🚩 Interested in infrastructure-as-code, cloud architecture, and system performance optimization
 ```
 
-Open http://localhost:3000 with your browser to see the result.
+# 🛠️Personal Projects
+Currently working on personal projects to enhance my skills in cloud automation, infrastructure-as-code, and scalable architectures. Stay tuned!
 
-## Explore
+Some ideas I’m exploring:
+  - 🌐 **Automated Cloud Deployment:** CI/CD pipelines with Terraform & Kubernetes
+  - 📊 **Monitoring & Logging Tools:** Setting up Prometheus, Grafana, and ELK stack dashboards
+  - 🤖 **Automation Scripts:** Python & Ansible for routine cloud tasks
 
-In the project, you can see:
+# 💻Tech Stack
+<div align="center">
 
-- `lib/source.ts`: Code for content source adapter, [`loader()`](https://fumadocs.dev/docs/headless/source-api) provides the interface to access your content.
-- `lib/layout.shared.tsx`: Shared options for layouts, optional but preferred to keep.
+[![Linux](assets/linux.svg)](https://github.com/pgr866)
+&nbsp;&nbsp;&nbsp;
+[![Bash](assets/bash.svg)](https://github.com/pgr866)
+&nbsp;&nbsp;&nbsp;
+[![Git](assets/git.svg)](https://github.com/pgr866)
+&nbsp;&nbsp;&nbsp;
+[![Python](assets/python.svg)](https://github.com/pgr866)
+&nbsp;&nbsp;&nbsp;
+[![Docker](assets/docker.svg)](https://github.com/pgr866)
+&nbsp;&nbsp;&nbsp;
+[![Kubernetes](assets/kubernetes.svg)](https://github.com/pgr866)
+&nbsp;&nbsp;&nbsp;
+[![GitHub Actions](assets/github-actions.svg)](https://github.com/pgr866)
+&nbsp;&nbsp;&nbsp;
+[![Jenkins](assets/jenkins.svg)](https://github.com/pgr866)
+</div>
 
-| Route                     | Description                                            |
-| ------------------------- | ------------------------------------------------------ |
-| `app/(home)`              | The route group for your landing page and other pages. |
-| `app/docs`                | The documentation layout and pages.                    |
-| `app/api/search/route.ts` | The Route Handler for search.                          |
+<div align="center">
 
-### Fumadocs MDX
+<!-- [![Ansible](assets/ansible.svg)](https://github.com/pgr866)
+&nbsp;&nbsp;&nbsp; -->
+[![Terraform](assets/terraform.svg)](https://github.com/pgr866)
+&nbsp;&nbsp;&nbsp;<!-- [![AWS](assets/aws.svg)](https://github.com/pgr866)
+&nbsp;&nbsp;&nbsp; -->
+[![Azure](assets/azure.svg)](https://github.com/pgr866)
+&nbsp;&nbsp;&nbsp;
+[![GCP](assets/gcp.svg)](https://github.com/pgr866)
+&nbsp;&nbsp;&nbsp;
+[![Prometheus](assets/prometheus.svg)](https://github.com/pgr866)
+&nbsp;&nbsp;&nbsp;
+[![Grafana](assets/grafana.svg)](https://github.com/pgr866)
+<!-- &nbsp;&nbsp;&nbsp;
+[![ELK](assets/elk.svg)](https://github.com/pgr866) -->
+</div>
 
-A `source.config.ts` config file has been included, you can customise different options like frontmatter schema.
+<br>
 
-Read the [Introduction](https://fumadocs.dev/docs/mdx) for further details.
+<div align="center">
 
-## Learn More
+  ### **Let's get in touch!**
 
-To learn more about Next.js and Fumadocs, take a look at the following
-resources:
+  <a href="https://www.linkedin.com/in/pablo-gomez-rivas/"><img src="assets/linkedin.svg" alt="LinkedIn" height="20"></a> &nbsp;&nbsp;
+  <a href="https://x.com/pgr866"><img src="assets/x.svg" alt="X" height="20"></a> &nbsp;&nbsp;
+  <a href="https://discordapp.com/users/689848538859044923/"><img src="assets/discord.svg" alt="Discord" height="20"></a> &nbsp;&nbsp;
+  <a href="mailto:pgr866@gmail.com"><img src="assets/gmail.svg" alt="Mail" height="20"></a>
+<div>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js
-  features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [Fumadocs](https://fumadocs.dev) - learn about Fumadocs
+<a href="https://github.com/pgr866">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/pgr866/my-app/output/github-snake-dark.svg">
+    <img alt="Snake" src="https://raw.githubusercontent.com/pgr866/my-app/output/github-snake.svg">
+  </picture>
+</a>
