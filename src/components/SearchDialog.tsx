@@ -1,6 +1,6 @@
 "use client";
 
-import type { ComponentProps } from "react";
+import { useState, type ComponentProps } from "react";
 import { useDocsSearch } from "fumadocs-core/search/client";
 import {
   SearchDialog,
@@ -21,15 +21,23 @@ const Item = (props: ComponentProps<typeof SearchDialogListItem>) => (
 
 export default function CustomSearchDialog(props: SharedProps) {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+  const [term, setTerm] = useState("");
   const { search, setSearch, query } = useDocsSearch({
     type: "static",
     from: `${basePath}/api/search`,
+    search: {
+      threshold: 0,
+      tolerance: term.trim() && term.trim().split(/\s+/).every((word) => word.length >= 5) ? 1 : 0,
+    },
   });
 
   return (
     <SearchDialog
       search={search}
-      onSearchChange={setSearch}
+      onSearchChange={(value) => {
+        setTerm(value);
+        setSearch(value);
+      }}
       isLoading={query.isLoading}
       {...props}
     >

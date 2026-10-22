@@ -5,11 +5,18 @@ export const dynamic = 'force-static';
 export const revalidate = false;
 
 export const { staticGET: GET } = createSearchAPI('advanced', {
+  language: 'english',
   indexes: source.getPages().map((page) => ({
     title: page.data.title,
     content: page.data.description ?? page.data.structuredData.contents[0]?.content ?? '',
     url: page.url,
     id: page.url,
-    structuredData: page.data.structuredData,
+    structuredData: {
+      ...page.data.structuredData,
+      contents: [
+        ...(page.data.description ? [{ heading: '', content: page.data.description }] : []),
+        ...page.data.structuredData.contents,
+      ],
+    },
   })),
 });

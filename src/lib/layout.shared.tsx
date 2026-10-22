@@ -2,6 +2,9 @@ import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
 import { FaDiscord, FaGithub, FaLinkedin, FaXTwitter } from 'react-icons/fa6';
 import { Mail } from 'lucide-react';
 
+export const appName = 'Pablo Gómez Rivas';
+export const contentName = 'Content';
+
 export const gitConfig = {
   user: 'pgr866',
   repo: 'my-app',
@@ -21,7 +24,7 @@ export function baseOptions(): BaseLayoutProps {
               WebkitMask: `url(${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/icon.svg) center / contain no-repeat`,
             }}
           />
-          Pablo Gómez Rivas
+          {appName}
         </>
       ),
     },

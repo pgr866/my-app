@@ -12,7 +12,7 @@ const sidebarStyles = `
   #nd-sidebar > :last-child > div { justify-content: space-between; padding-inline-end: 2px; }
 `;
 
-export default function Layout({ children }: LayoutProps<'/docs'>) {
+export default function Layout({ children }: LayoutProps<'/content'>) {
   return (
     <>
       <style>{sidebarStyles}</style>

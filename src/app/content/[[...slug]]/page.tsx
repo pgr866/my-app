@@ -7,12 +7,14 @@ import {
   MarkdownCopyButton,
   ViewOptionsPopover,
 } from 'fumadocs-ui/layouts/docs/page';
+import type { Metadata } from 'next';
+import { getBreadcrumbItems } from 'fumadocs-core/breadcrumb';
 import { notFound } from 'next/navigation';
 import { getMDXComponents } from '@/components/mdx';
 import { createRelativeLink } from 'fumadocs-ui/mdx';
-import { gitConfig } from '@/lib/layout.shared';
+import { contentName, gitConfig } from '@/lib/layout.shared';
 
-export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
+export default async function Page(props: PageProps<'/content/[[...slug]]'>) {
   const params = await props.params;
   const page = source.getPage(params.slug);
   if (!page) notFound();
@@ -39,13 +41,23 @@ export default async function Page(props: PageProps<'/docs/[[...slug]]'>) {
       <DocsBody>
         <MDX
           components={getMDXComponents({
-            // this allows you to link to other pages with relative file paths
             a: createRelativeLink(source, page),
           })}
         />
       </DocsBody>
     </DocsPage>
   );
+}
+
+export async function generateMetadata(props: PageProps<'/content/[[...slug]]'>): Promise<Metadata> {
+  const page = source.getPage((await props.params).slug);
+  if (!page) notFound();
+
+  const folders = getBreadcrumbItems(page.url, source.getPageTree())
+    .map((item) => item.name)
+    .filter((name): name is string => typeof name === 'string');
+
+  return { title: [contentName, ...folders, page.data.title].join(' | ') };
 }
 
 export async function generateStaticParams() {

@@ -1,3 +1,4 @@
+import { Children, isValidElement, type ReactElement } from 'react';
 import { readFile } from 'node:fs/promises';
 import { Markdown } from 'fumadocs-core/content/md';
 import rehypeRaw from 'rehype-raw';
@@ -16,6 +17,17 @@ export default async function HomePage() {
         rehypePlugins={[rehypeRaw]}
         remarkRehypeOptions={{ allowDangerousHtml: true }}
         components={getMDXComponents({
+          picture: ({ children }) => {
+            const nodes = Children.toArray(children).filter(isValidElement) as ReactElement<{ src?: string; srcSet?: string; alt?: string }>[];
+            const dark = nodes.find((n) => n.props.srcSet)?.props.srcSet;
+            const light = nodes.find((n) => n.props.src)?.props;
+            return (
+              <>
+                <img src={light?.src} alt={light?.alt} className="dark:hidden!" />
+                <img src={dark} alt={light?.alt} className="hidden! dark:inline!" />
+              </>
+            );
+          },
           img: ({ src, height, ...props }) => (
             <img
               {...props}

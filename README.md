@@ -2,7 +2,7 @@
 
 # Hi there 👋, I'm Pablo
 
-[![DevOps & Cloud Engineer](https://readme-typing-svg.herokuapp.com/?font=Geist+Mono&weight=500&size=20&pause=1000&center=true&vCenter=true&width=560&height=50&color=7D8590&lines=DevOps+%26+Cloud+Engineer;Linux+%7C+Git+%7C+Python;GitHub+Actions+%7C+Jenkins;Terraform+%7C+Azure+%7C+GCP;Docker+%7C+Kubernetes;Prometheus+%7C+Grafana;Always+learning+and+improving)](https://github.com/pgr866)
+![DevOps & Cloud Engineer](https://readme-typing-svg.herokuapp.com/?font=Geist+Mono&weight=500&size=20&pause=1000&center=true&vCenter=true&width=560&height=50&color=7D8590&lines=DevOps+%26+Cloud+Engineer;Linux+%7C+Git+%7C+Python;GitHub+Actions+%7C+Jenkins;Terraform+%7C+Azure+%7C+GCP;Docker+%7C+Kubernetes;Prometheus+%7C+Grafana;Always+learning+and+improving)
 </div>
 
 ```
@@ -26,40 +26,40 @@ Some ideas I’m exploring:
 # 💻Tech Stack
 <div align="center">
 
-[![Linux](assets/linux.svg)](https://github.com/pgr866)
+![Linux](assets/linux.svg)
 &nbsp;&nbsp;&nbsp;
-[![Bash](assets/bash.svg)](https://github.com/pgr866)
+![Bash](assets/bash.svg)
 &nbsp;&nbsp;&nbsp;
-[![Git](assets/git.svg)](https://github.com/pgr866)
+![Git](assets/git.svg)
 &nbsp;&nbsp;&nbsp;
-[![Python](assets/python.svg)](https://github.com/pgr866)
-&nbsp;&nbsp;&nbsp;<!-- [![GO](assets/go.svg)](https://github.com/pgr866)
+![Python](assets/python.svg)
+&nbsp;&nbsp;&nbsp;<!-- ![GO](assets/go.svg)
 &nbsp;&nbsp;&nbsp; -->
-[![Docker](assets/docker.svg)](https://github.com/pgr866)
+![Docker](assets/docker.svg)
 &nbsp;&nbsp;&nbsp;
-[![Kubernetes](assets/kubernetes.svg)](https://github.com/pgr866)
+![Kubernetes](assets/kubernetes.svg)
 &nbsp;&nbsp;&nbsp;
-[![GitHub Actions](assets/github-actions.svg)](https://github.com/pgr866)
+![GitHub Actions](assets/github-actions.svg)
 &nbsp;&nbsp;&nbsp;
-[![Jenkins](assets/jenkins.svg)](https://github.com/pgr866)
+![Jenkins](assets/jenkins.svg)
 </div>
 
 <div align="center">
 
-<!-- [![Ansible](assets/ansible.svg)](https://github.com/pgr866)
+<!-- ![Ansible](assets/ansible.svg)
 &nbsp;&nbsp;&nbsp; -->
-[![Terraform](assets/terraform.svg)](https://github.com/pgr866)
-&nbsp;&nbsp;&nbsp;<!-- [![AWS](assets/aws.svg)](https://github.com/pgr866)
+![Terraform](assets/terraform.svg)
+&nbsp;&nbsp;&nbsp;<!-- ![AWS](assets/aws.svg)
 &nbsp;&nbsp;&nbsp; -->
-[![Azure](assets/azure.svg)](https://github.com/pgr866)
+![Azure](assets/azure.svg)
 &nbsp;&nbsp;&nbsp;
-[![GCP](assets/gcp.svg)](https://github.com/pgr866)
+![GCP](assets/gcp.svg)
 &nbsp;&nbsp;&nbsp;
-[![Prometheus](assets/prometheus.svg)](https://github.com/pgr866)
+![Prometheus](assets/prometheus.svg)
 &nbsp;&nbsp;&nbsp;
-[![Grafana](assets/grafana.svg)](https://github.com/pgr866)
+![Grafana](assets/grafana.svg)
 <!-- &nbsp;&nbsp;&nbsp;
-[![ELK](assets/elk.svg)](https://github.com/pgr866) -->
+![ELK](assets/elk.svg) -->
 </div>
 
 <br>
@@ -74,9 +74,7 @@ Some ideas I’m exploring:
   <a href="mailto:pgr866@gmail.com"><img src="assets/gmail.svg" alt="Mail" height="20"></a>
 <div>
 
-<a href="https://github.com/pgr866">
-  <picture>
+<picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/pgr866/my-app/output/github-snake-dark.svg">
     <img alt="Snake" src="https://raw.githubusercontent.com/pgr866/my-app/output/github-snake.svg">
   </picture>
-</a>
