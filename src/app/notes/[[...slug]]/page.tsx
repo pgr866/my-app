@@ -12,9 +12,9 @@ import { getBreadcrumbItems } from 'fumadocs-core/breadcrumb';
 import { notFound } from 'next/navigation';
 import { getMDXComponents } from '@/components/mdx';
 import { createRelativeLink } from 'fumadocs-ui/mdx';
-import { contentName, gitConfig } from '@/lib/layout.shared';
+import { notesName, gitConfig } from '@/lib/layout.shared';
 
-export default async function Page(props: PageProps<'/content/[[...slug]]'>) {
+export default async function Page(props: PageProps<'/notes/[[...slug]]'>) {
   const params = await props.params;
   const page = source.getPage(params.slug);
   if (!page) notFound();
@@ -39,7 +39,7 @@ export default async function Page(props: PageProps<'/content/[[...slug]]'>) {
           markdownUrl={`data:text/markdown;charset=utf-8,${encodeURIComponent(markdown)}`}
         />
         <ViewOptionsPopover
-          githubUrl={`https://github.com/${gitConfig.user}/${gitConfig.repo}/blob/${gitConfig.branch}/content/${page.path}`}
+          githubUrl={`https://github.com/${gitConfig.user}/${gitConfig.repo}/blob/${gitConfig.branch}/notes/${page.path}`}
         />
       </div>
       <DocsBody>
@@ -54,7 +54,7 @@ export default async function Page(props: PageProps<'/content/[[...slug]]'>) {
 }
 
 export async function generateMetadata(
-  props: PageProps<'/content/[[...slug]]'>,
+  props: PageProps<'/notes/[[...slug]]'>,
 ): Promise<Metadata> {
   const page = source.getPage((await props.params).slug);
   if (!page) notFound();
@@ -64,7 +64,7 @@ export async function generateMetadata(
     .filter((name): name is string => typeof name === 'string');
 
   return {
-    title: [page.data.title, folders.at(-1) ?? contentName].join(' | '),
+    title: [page.data.title, folders.at(-1) ?? notesName].join(' | '),
   };
 }
 

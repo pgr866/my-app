@@ -3,6 +3,7 @@ import { readFile } from 'node:fs/promises';
 import { Markdown } from 'fumadocs-core/content/md';
 import { remarkHeading } from 'fumadocs-core/mdx-plugins';
 import rehypeRaw from 'rehype-raw';
+import remarkGfm from 'remark-gfm';
 import { DocsBody } from 'fumadocs-ui/layouts/docs/page';
 import { getMDXComponents } from '@/components/mdx';
 import { gitConfig } from '@/lib/layout.shared';
@@ -13,12 +14,16 @@ export default async function HomePage() {
   const markdown = await readFile('README.md', 'utf8');
 
   return (
-    <DocsBody className="mx-auto w-full max-w-3xl px-4 py-10 [&_img]:my-0 [&_img]:inline">
+    <DocsBody className="mx-auto w-full max-w-[836px] px-4 py-10 [&_img]:my-0 [&_img]:inline [&_:is(h2,h3)_img]:align-middle [&_:is(h2,h3)_img]:me-2 [&_.projects_td]:px-6!">
       <Markdown
-        remarkPlugins={[remarkHeading]}
+        remarkPlugins={[remarkGfm, remarkHeading]}
         rehypePlugins={[rehypeRaw]}
         remarkRehypeOptions={{ allowDangerousHtml: true }}
         components={getMDXComponents({
+          // plain headings: no anchor link around the icon and title
+          h1: (props) => <h1 {...props} />,
+          h2: (props) => <h2 {...props} />,
+          h3: (props) => <h3 {...props} />,
           picture: ({ children }) => {
             const nodes = Children.toArray(children).filter(
               isValidElement,
