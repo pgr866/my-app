@@ -34,7 +34,7 @@ export default async function Page(props: PageProps<'/notes/[[...slug]]'>) {
       <DocsDescription className="mb-0">
         {page.data.description}
       </DocsDescription>
-      <div className="flex flex-row gap-2 items-center border-b pb-6">
+      <div className="page-actions flex flex-row gap-2 items-center border-b pb-6">
         <MarkdownCopyButton
           markdownUrl={`data:text/markdown;charset=utf-8,${encodeURIComponent(markdown)}`}
         />

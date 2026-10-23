@@ -3,6 +3,11 @@ import { DocsLayout } from 'fumadocs-ui/layouts/docs';
 import { baseOptions } from '@/lib/layout.shared';
 
 const sidebarStyles = `
+  /* sidebar background keeps the neutral card color */
+  #nd-sidebar { --color-fd-card: hsl(0, 0%, 94.7%); }
+  .dark #nd-sidebar { --color-fd-card: hsl(0, 0%, 9.8%); }
+  /* selected item: text color tinted with the primary, in medium weight */
+  #nd-sidebar a[data-active="true"] { color: color-mix(in oklab, var(--color-fd-primary) 45%, var(--color-fd-foreground)); font-weight: 500; }
   /* header: search bar followed by the collapse button, without the title */
   #nd-sidebar > :first-child { display: grid; grid-template-columns: 1fr auto; align-items: center; }
   #nd-sidebar > :first-child > :first-child { display: contents; }

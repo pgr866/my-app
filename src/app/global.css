@@ -2,9 +2,68 @@
 @import 'fumadocs-ui/css/neutral.css';
 @import 'fumadocs-ui/css/preset.css';
 
+:root,
+.dark {
+  --color-fd-primary: #633691;
+  --color-fd-primary-foreground: #fff;
+  --color-fd-ring: color-mix(in oklab, #633691 60%, transparent);
+}
+
+:root {
+  --color-fd-border: color-mix(in oklab, #633691 12%, transparent);
+  --color-fd-card: color-mix(in oklab, #633691 3%, #f5f5f5);
+  --color-fd-accent: color-mix(in oklab, #633691 8%, transparent);
+}
+
+.dark {
+  --color-fd-border: color-mix(in oklab, #633691 18%, transparent);
+  --color-fd-card: color-mix(in oklab, #633691 5%, #121212);
+  --color-fd-accent: color-mix(in oklab, #633691 12%, transparent);
+}
+
 @layer base {
   button:not(:disabled),
   [role='button']:not(:disabled) {
     cursor: pointer;
   }
+}
+
+[data-card] > div.not-prose:first-child {
+  background-color: color-mix(
+    in oklab,
+    var(--color-fd-primary) 12%,
+    transparent
+  );
+  border-color: color-mix(in oklab, var(--color-fd-primary) 35%, transparent);
+  box-shadow: none;
+}
+
+#nd-toc a[data-active='true'] {
+  color: var(--color-fd-foreground);
+}
+
+.page-actions > button {
+  background-color: color-mix(
+    in oklab,
+    var(--color-fd-primary) 6%,
+    var(--color-fd-background)
+  );
+  border-color: color-mix(in oklab, var(--color-fd-primary) 28%, transparent);
+  transition:
+    background-color 150ms,
+    border-color 150ms;
+}
+
+.page-actions > button:hover,
+.page-actions > button[data-state='open'] {
+  background-color: color-mix(
+    in oklab,
+    var(--color-fd-primary) 14%,
+    var(--color-fd-background)
+  );
+  border-color: color-mix(in oklab, var(--color-fd-primary) 45%, transparent);
+}
+
+#nd-nav a[data-active='true'] {
+  color: var(--color-fd-foreground);
 }

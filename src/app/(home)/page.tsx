@@ -1,4 +1,9 @@
-import { Children, isValidElement, type ReactElement } from 'react';
+import {
+  Children,
+  isValidElement,
+  type ComponentProps,
+  type ReactElement,
+} from 'react';
 import { readFile } from 'node:fs/promises';
 import { Markdown } from 'fumadocs-core/content/md';
 import { remarkHeading } from 'fumadocs-core/mdx-plugins';
@@ -20,10 +25,18 @@ export default async function HomePage() {
         rehypePlugins={[rehypeRaw]}
         remarkRehypeOptions={{ allowDangerousHtml: true }}
         components={getMDXComponents({
-          // plain headings: no anchor link around the icon and title
           h1: (props) => <h1 {...props} />,
           h2: (props) => <h2 {...props} />,
           h3: (props) => <h3 {...props} />,
+          td: ({
+            vAlign,
+            ...props
+          }: ComponentProps<'td'> & { vAlign?: string }) => {
+            const legacy: Record<string, string | undefined> = {
+              valign: vAlign,
+            };
+            return <td {...props} {...legacy} />;
+          },
           picture: ({ children }) => {
             const nodes = Children.toArray(children).filter(
               isValidElement,
@@ -31,19 +44,32 @@ export default async function HomePage() {
               src?: string;
               srcSet?: string;
               alt?: string;
+              height?: string | number;
             }>[];
-            const dark = nodes.find((n) => n.props.srcSet)?.props.srcSet;
+            const publicUrl = (url?: string) =>
+              url?.replace(
+                /^public\//,
+                `${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/`,
+              );
+            const dark = publicUrl(
+              nodes.find((n) => n.props.srcSet)?.props.srcSet,
+            );
             const light = nodes.find((n) => n.props.src)?.props;
+            const style = light?.height
+              ? { height: Number(light.height), width: 'auto' }
+              : undefined;
             return (
               <>
                 <img
-                  src={light?.src}
+                  src={publicUrl(light?.src)}
                   alt={light?.alt}
+                  style={style}
                   className="dark:hidden!"
                 />
                 <img
                   src={dark}
                   alt={light?.alt}
+                  style={style}
                   className="hidden! dark:inline!"
                 />
               </>
@@ -55,7 +81,12 @@ export default async function HomePage() {
               alt={alt ?? ''}
               src={
                 typeof src === 'string'
-                  ? src.replace(/^assets\//, assetsUrl)
+                  ? src
+                      .replace(/^assets\//, assetsUrl)
+                      .replace(
+                        /^public\//,
+                        `${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/`,
+                      )
                   : src
               }
               style={

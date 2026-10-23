@@ -24,7 +24,11 @@ export default function Layout({ children }: LayoutProps<'/'>) {
           <HomeLayout
             {...options}
             className="[--fd-banner-height:3.5rem] [--fd-layout-width:100vw] [&_#nd-nav>div>div>nav]:px-10 [&_#nd-nav_a[aria-label]_svg]:mx-1 [&_#nd-nav_a[aria-label]_svg]:size-[15.5px] [&_#nd-nav_div.flex-1]:flex-row-reverse [&_#nd-nav_div.flex-1]:justify-start"
-            links={[{ text: notesName, url: '/notes' }, ...links]}
+            links={[
+              { text: 'About Me', url: '/about', active: 'nested-url' },
+              { text: notesName, url: '/notes', active: 'nested-url' },
+              ...links,
+            ]}
           >
             {children}
           </HomeLayout>
