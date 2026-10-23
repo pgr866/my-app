@@ -63,7 +63,9 @@ export async function generateMetadata(
     .map((item) => item.name)
     .filter((name): name is string => typeof name === 'string');
 
-  return { title: [contentName, ...folders, page.data.title].join(' | ') };
+  return {
+    title: [page.data.title, folders.at(-1) ?? contentName].join(' | '),
+  };
 }
 
 export async function generateStaticParams() {

@@ -11,7 +11,7 @@ const geist = Geist({
 });
 
 export const metadata: Metadata = {
-  title: { default: appName, template: `${appName} | %s` },
+  title: { default: appName, template: `%s | ${appName}` },
 };
 
 export default function Layout({ children }: LayoutProps<'/'>) {

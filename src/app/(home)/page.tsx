@@ -1,6 +1,7 @@
 import { Children, isValidElement, type ReactElement } from 'react';
 import { readFile } from 'node:fs/promises';
 import { Markdown } from 'fumadocs-core/content/md';
+import { remarkHeading } from 'fumadocs-core/mdx-plugins';
 import rehypeRaw from 'rehype-raw';
 import { DocsBody } from 'fumadocs-ui/layouts/docs/page';
 import { getMDXComponents } from '@/components/mdx';
@@ -14,6 +15,7 @@ export default async function HomePage() {
   return (
     <DocsBody className="mx-auto w-full max-w-3xl px-4 py-10 [&_img]:my-0 [&_img]:inline">
       <Markdown
+        remarkPlugins={[remarkHeading]}
         rehypePlugins={[rehypeRaw]}
         remarkRehypeOptions={{ allowDangerousHtml: true }}
         components={getMDXComponents({
