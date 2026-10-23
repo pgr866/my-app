@@ -39,7 +39,7 @@ export default async function Page(props: PageProps<'/content/[[...slug]]'>) {
           markdownUrl={`data:text/markdown;charset=utf-8,${encodeURIComponent(markdown)}`}
         />
         <ViewOptionsPopover
-          githubUrl={`https://github.com/${gitConfig.user}/${gitConfig.repo}/blob/${gitConfig.branch}/content/docs/${page.path}`}
+          githubUrl={`https://github.com/${gitConfig.user}/${gitConfig.repo}/blob/${gitConfig.branch}/content/${page.path}`}
         />
       </div>
       <DocsBody>
