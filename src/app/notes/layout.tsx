@@ -3,6 +3,8 @@ import { DocsLayout } from 'fumadocs-ui/layouts/docs';
 import { baseOptions } from '@/lib/layout.shared';
 
 const sidebarStyles = `
+  /* sidebar paints above the header fade so it does not get blurred */
+  [data-sidebar-placeholder] { z-index: 45; }
   /* sidebar background keeps the neutral card color */
   #nd-sidebar { --color-fd-card: hsl(0, 0%, 94.7%); }
   .dark #nd-sidebar { --color-fd-card: hsl(0, 0%, 9.8%); }

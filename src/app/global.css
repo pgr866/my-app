@@ -26,6 +26,32 @@
   [role='button']:not(:disabled) {
     cursor: pointer;
   }
+
+  /* slim scrollbars that follow the Fumadocs theme */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-fd-border) transparent;
+  }
+
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--color-fd-border);
+    border-radius: 9999px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-fd-muted-foreground);
+  }
 }
 
 [data-card] > div.not-prose:first-child {
@@ -66,4 +92,24 @@
 
 #nd-nav a[data-active='true'] {
   color: var(--color-fd-foreground);
+}
+
+/* content fades out softly as it reaches the header */
+#nd-nav::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  top: 100%;
+  z-index: -1;
+  height: 5rem;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    color-mix(in oklab, var(--color-fd-background) 95%, transparent),
+    transparent
+  );
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  mask-image: linear-gradient(to bottom, black 0%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent);
 }
