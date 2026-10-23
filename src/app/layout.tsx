@@ -1,20 +1,20 @@
-import type { Metadata } from "next";
-import { RootProvider } from "fumadocs-ui/provider/next";
-import { HomeLayout } from "fumadocs-ui/layouts/home";
-import { appName, baseOptions, contentName } from "@/lib/layout.shared";
-import "./global.css";
-import { Geist } from "next/font/google";
-import CustomSearchDialog from "@/components/SearchDialog";
+import type { Metadata } from 'next';
+import { RootProvider } from 'fumadocs-ui/provider/next';
+import { HomeLayout } from 'fumadocs-ui/layouts/home';
+import { appName, baseOptions, contentName } from '@/lib/layout.shared';
+import './global.css';
+import { Geist } from 'next/font/google';
+import CustomSearchDialog from '@/components/SearchDialog';
 
 const geist = Geist({
-  subsets: ["latin"],
+  subsets: ['latin'],
 });
 
 export const metadata: Metadata = {
   title: { default: appName, template: `${appName} | %s` },
 };
 
-export default function Layout({ children }: LayoutProps<"/">) {
+export default function Layout({ children }: LayoutProps<'/'>) {
   const { links = [], ...options } = baseOptions();
 
   return (

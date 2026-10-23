@@ -19,7 +19,8 @@ export default function Layout({ children }: LayoutProps<'/content'>) {
       <DocsLayout
         tree={source.getPageTree()}
         containerProps={{
-          className: '[--fd-layout-width:100vw] min-h-[calc(var(--fd-docs-height)-var(--fd-banner-height))]',
+          className:
+            '[--fd-layout-width:100vw] min-h-[calc(var(--fd-docs-height)-var(--fd-banner-height))]',
         }}
         {...baseOptions()}
         themeSwitch={{ enabled: false }}

@@ -16,14 +16,17 @@
 ```
 
 # 🛠️Personal Projects ![GitHub followers](https://img.shields.io/github/followers/pgr866?style=social) ![Profile views](https://komarev.com/ghpvc/?username=pgr866)
+
 Currently working on personal projects to enhance my skills in cloud automation, infrastructure-as-code, and scalable architectures. Stay tuned!
 
 Some ideas I’m exploring:
-  - 🌐 **Automated Cloud Deployment:** CI/CD pipelines with Terraform & Kubernetes
-  - 📊 **Monitoring & Logging Tools:** Setting up Prometheus, Grafana, and ELK stack dashboards
-  - 🤖 **Automation Scripts:** Python & Ansible for routine cloud tasks
+
+- 🌐 **Automated Cloud Deployment:** CI/CD pipelines with Terraform & Kubernetes
+- 📊 **Monitoring & Logging Tools:** Setting up Prometheus, Grafana, and ELK stack dashboards
+- 🤖 **Automation Scripts:** Python & Ansible for routine cloud tasks
 
 # 💻Tech Stack
+
 <div align="center">
 
 ![Linux](assets/linux.svg)
@@ -48,6 +51,7 @@ Some ideas I’m exploring:
 
 <!-- ![Ansible](assets/ansible.svg)
 &nbsp;&nbsp;&nbsp; -->
+
 ![Terraform](assets/terraform.svg)
 &nbsp;&nbsp;&nbsp;<!-- ![AWS](assets/aws.svg)
 &nbsp;&nbsp;&nbsp; -->
@@ -66,12 +70,12 @@ Some ideas I’m exploring:
 
 <div align="center">
 
-  ### **Let's get in touch!**
+### **Let's get in touch!**
 
-  <a href="https://www.linkedin.com/in/pablo-gomez-rivas/"><img src="assets/linkedin.svg" alt="LinkedIn" height="20"></a> &nbsp;&nbsp;
-  <a href="https://x.com/pgr866"><img src="assets/x.svg" alt="X" height="20"></a> &nbsp;&nbsp;
-  <a href="https://discordapp.com/users/689848538859044923/"><img src="assets/discord.svg" alt="Discord" height="20"></a> &nbsp;&nbsp;
-  <a href="mailto:pgr866@gmail.com"><img src="assets/gmail.svg" alt="Mail" height="20"></a>
+<a href="https://www.linkedin.com/in/pablo-gomez-rivas/"><img src="assets/linkedin.svg" alt="LinkedIn" height="20"></a> &nbsp;&nbsp;
+<a href="https://x.com/pgr866"><img src="assets/x.svg" alt="X" height="20"></a> &nbsp;&nbsp;
+<a href="https://discordapp.com/users/689848538859044923/"><img src="assets/discord.svg" alt="Discord" height="20"></a> &nbsp;&nbsp;
+<a href="mailto:pgr866@gmail.com"><img src="assets/gmail.svg" alt="Mail" height="20"></a>
 <div>
 
 <picture>

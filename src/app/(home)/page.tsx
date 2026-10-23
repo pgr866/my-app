@@ -18,21 +18,42 @@ export default async function HomePage() {
         remarkRehypeOptions={{ allowDangerousHtml: true }}
         components={getMDXComponents({
           picture: ({ children }) => {
-            const nodes = Children.toArray(children).filter(isValidElement) as ReactElement<{ src?: string; srcSet?: string; alt?: string }>[];
+            const nodes = Children.toArray(children).filter(
+              isValidElement,
+            ) as ReactElement<{
+              src?: string;
+              srcSet?: string;
+              alt?: string;
+            }>[];
             const dark = nodes.find((n) => n.props.srcSet)?.props.srcSet;
             const light = nodes.find((n) => n.props.src)?.props;
             return (
               <>
-                <img src={light?.src} alt={light?.alt} className="dark:hidden!" />
-                <img src={dark} alt={light?.alt} className="hidden! dark:inline!" />
+                <img
+                  src={light?.src}
+                  alt={light?.alt}
+                  className="dark:hidden!"
+                />
+                <img
+                  src={dark}
+                  alt={light?.alt}
+                  className="hidden! dark:inline!"
+                />
               </>
             );
           },
-          img: ({ src, height, ...props }) => (
+          img: ({ src, height, alt, ...props }) => (
             <img
               {...props}
-              src={typeof src === 'string' ? src.replace(/^assets\//, assetsUrl) : src}
-              style={height ? { height: Number(height), width: 'auto' } : undefined}
+              alt={alt ?? ''}
+              src={
+                typeof src === 'string'
+                  ? src.replace(/^assets\//, assetsUrl)
+                  : src
+              }
+              style={
+                height ? { height: Number(height), width: 'auto' } : undefined
+              }
             />
           ),
         })}

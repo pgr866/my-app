@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useState, type ComponentProps } from "react";
-import { useDocsSearch } from "fumadocs-core/search/client";
+import { useState, type ComponentProps } from 'react';
+import { useDocsSearch } from 'fumadocs-core/search/client';
 import {
   SearchDialog,
   SearchDialogContent,
@@ -12,22 +12,29 @@ import {
   SearchDialogOverlay,
   SearchDialogIcon,
   SearchDialogClose,
-} from "fumadocs-ui/components/dialog/search";
-import type { SharedProps } from "fumadocs-ui/components/dialog/search";
+} from 'fumadocs-ui/components/dialog/search';
+import type { SharedProps } from 'fumadocs-ui/components/dialog/search';
 
 const Item = (props: ComponentProps<typeof SearchDialogListItem>) => (
   <SearchDialogListItem {...props} className="cursor-pointer" />
 );
 
 export default function CustomSearchDialog(props: SharedProps) {
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
-  const [term, setTerm] = useState("");
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+  const [term, setTerm] = useState('');
   const { search, setSearch, query } = useDocsSearch({
-    type: "static",
+    type: 'static',
     from: `${basePath}/api/search`,
     search: {
       threshold: 0,
-      tolerance: term.trim() && term.trim().split(/\s+/).every((word) => word.length >= 5) ? 1 : 0,
+      tolerance:
+        term.trim() &&
+        term
+          .trim()
+          .split(/\s+/)
+          .every((word) => word.length >= 5)
+          ? 1
+          : 0,
     },
   });
 
@@ -48,7 +55,10 @@ export default function CustomSearchDialog(props: SharedProps) {
           <SearchDialogInput />
           <SearchDialogClose />
         </SearchDialogHeader>
-        <SearchDialogList items={query.data !== "empty" ? query.data : null} Item={Item} />
+        <SearchDialogList
+          items={query.data !== 'empty' ? query.data : null}
+          Item={Item}
+        />
       </SearchDialogContent>
     </SearchDialog>
   );

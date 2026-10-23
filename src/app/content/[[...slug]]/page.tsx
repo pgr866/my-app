@@ -31,9 +31,13 @@ export default async function Page(props: PageProps<'/content/[[...slug]]'>) {
   return (
     <DocsPage toc={page.data.toc} full={page.data.full}>
       <DocsTitle>{page.data.title}</DocsTitle>
-      <DocsDescription className="mb-0">{page.data.description}</DocsDescription>
+      <DocsDescription className="mb-0">
+        {page.data.description}
+      </DocsDescription>
       <div className="flex flex-row gap-2 items-center border-b pb-6">
-        <MarkdownCopyButton markdownUrl={`data:text/markdown;charset=utf-8,${encodeURIComponent(markdown)}`} />
+        <MarkdownCopyButton
+          markdownUrl={`data:text/markdown;charset=utf-8,${encodeURIComponent(markdown)}`}
+        />
         <ViewOptionsPopover
           githubUrl={`https://github.com/${gitConfig.user}/${gitConfig.repo}/blob/${gitConfig.branch}/content/docs/${page.path}`}
         />
@@ -49,7 +53,9 @@ export default async function Page(props: PageProps<'/content/[[...slug]]'>) {
   );
 }
 
-export async function generateMetadata(props: PageProps<'/content/[[...slug]]'>): Promise<Metadata> {
+export async function generateMetadata(
+  props: PageProps<'/content/[[...slug]]'>,
+): Promise<Metadata> {
   const page = source.getPage((await props.params).slug);
   if (!page) notFound();
 
