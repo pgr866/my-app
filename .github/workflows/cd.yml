@@ -1,9 +1,10 @@
 name: Deploy Next.js site to Pages
 
 on:
-  push:
+  workflow_run:
+    workflows: ['CI']
+    types: [completed]
     branches: ['main']
-  workflow_dispatch:
 
 permissions:
   contents: read
@@ -16,6 +17,9 @@ concurrency:
 
 jobs:
   build:
+    if: >-
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.event == 'push'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7.0.1
