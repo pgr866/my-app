@@ -29,7 +29,11 @@ export default async function Page(props: PageProps<'/notes/[[...slug]]'>) {
     .join('\n\n');
 
   return (
-    <DocsPage toc={page.data.toc} full={page.data.full}>
+    <DocsPage
+      toc={page.data.toc}
+      full={page.data.full}
+      className="md:pt-9 xl:pt-12 md:in-data-[sidebar-collapsed=true]:pt-9 xl:in-data-[sidebar-collapsed=true]:pt-12"
+    >
       <DocsTitle>{page.data.title}</DocsTitle>
       <DocsDescription className="mb-0">
         {page.data.description}

@@ -54,6 +54,44 @@
   }
 }
 
+/* the page scrolls inside body and its scrollbar track starts below the header */
+html {
+  overflow: hidden;
+}
+
+body {
+  position: fixed;
+  inset: 0;
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+  /* standard properties would disable the ::-webkit-scrollbar rules below */
+  scrollbar-width: auto;
+  scrollbar-color: auto;
+}
+
+body::-webkit-scrollbar-track {
+  margin-top: 3.5rem;
+}
+
+/* the header covers the scrollbar column too, so it spans the full width */
+html::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 40;
+  width: 8px;
+  height: calc(3.5rem + 1px);
+  pointer-events: none;
+  border-bottom: 1px solid var(--color-fd-border);
+  background-color: color-mix(
+    in oklab,
+    var(--color-fd-background) 60%,
+    transparent
+  );
+}
+
 [data-card] > div.not-prose:first-child {
   background-color: color-mix(
     in oklab,
@@ -92,6 +130,15 @@
 
 #nd-nav a[data-active='true'] {
   color: var(--color-fd-foreground);
+}
+
+/* header background is more see-through than the Fumadocs default (80%) */
+#nd-nav > div {
+  background-color: color-mix(
+    in oklab,
+    var(--color-fd-background) 60%,
+    transparent
+  );
 }
 
 /* content fades out softly as it reaches the header */

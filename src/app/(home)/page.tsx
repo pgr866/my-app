@@ -19,7 +19,7 @@ export default async function HomePage() {
   const markdown = await readFile('README.md', 'utf8');
 
   return (
-    <DocsBody className="mx-auto w-full max-w-[836px] px-4 py-10 [&_img]:my-0 [&_img]:inline [&_:is(h2,h3)_img]:align-middle [&_:is(h2,h3)_img]:me-2 [&_.projects_td]:px-6!">
+    <DocsBody className="mx-auto w-full max-w-[836px] px-4 pt-14 pb-10 [&_img]:my-0 [&_img]:inline [&_:is(h2,h3)_img]:align-middle [&_:is(h2,h3)_img]:me-2 [&_.projects_td]:px-6!">
       <Markdown
         remarkPlugins={[remarkGfm, remarkHeading]}
         rehypePlugins={[rehypeRaw]}

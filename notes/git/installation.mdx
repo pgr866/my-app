@@ -208,6 +208,109 @@ git config user.name
 git config user.email
 ```
 
+## Install from source
+
+Building from source gives you the latest release, which package managers often lag behind.
+
+### Build dependencies
+
+```bash
+# Debian and Ubuntu
+sudo apt install make gcc libssl-dev libcurl4-gnutls-dev libexpat1-dev gettext zlib1g-dev
+```
+
+### Download and compile
+
+```bash
+curl -LO https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.45.0.tar.gz
+tar -xzf git-2.45.0.tar.gz
+cd git-2.45.0
+make prefix=/usr/local all
+sudo make prefix=/usr/local install
+```
+
+## Multiple identities
+
+Use a different identity for work and personal repositories with conditional includes.
+
+### Global file
+
+```ini
+[user]
+    name = Your Name
+    email = you@example.com
+
+[includeIf "gitdir:~/work/"]
+    path = ~/.gitconfig-work
+```
+
+### Work file
+
+```ini
+[user]
+    email = you@company.com
+```
+
+## Signing commits
+
+Signed commits show a verified badge on most hosting platforms.
+
+### With SSH
+
+```bash
+git config --global gpg.format ssh
+git config --global user.signingkey ~/.ssh/id_ed25519.pub
+git config --global commit.gpgsign true
+```
+
+### Verify a signature
+
+```bash
+git log --show-signature -1
+```
+
+## Global ignore file
+
+Keep editor and OS files out of every repository without touching each `.gitignore`:
+
+```bash
+git config --global core.excludesfile ~/.gitignore_global
+```
+
+```bash
+printf ".DS_Store\n.idea/\n.vscode/\n*.swp\n" >> ~/.gitignore_global
+```
+
+## Shell completion
+
+### Bash
+
+```bash
+curl -o ~/.git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+echo "source ~/.git-completion.bash" >> ~/.bashrc
+```
+
+### Zsh
+
+```bash
+autoload -Uz compinit && compinit
+```
+
+## Performance on large repositories
+
+```bash
+git config --global core.fsmonitor true
+git config --global core.untrackedCache true
+git config --global feature.manyFiles true
+```
+
+For very large histories, prefer a shallow or partial clone:
+
+```bash
+git clone --depth 1 https://github.com/user/repo.git
+git clone --filter=blob:none https://github.com/user/repo.git
+```
+
 ## Next steps
 
 Once Git is installed and configured, continue with the configuration page.

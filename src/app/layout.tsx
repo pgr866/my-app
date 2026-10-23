@@ -19,7 +19,7 @@ export default function Layout({ children }: LayoutProps<'/'>) {
 
   return (
     <html lang="en" className={geist.className} suppressHydrationWarning>
-      <body className="flex flex-col min-h-screen">
+      <body className="flex flex-col">
         <RootProvider search={{ SearchDialog: CustomSearchDialog }}>
           <HomeLayout
             {...options}
