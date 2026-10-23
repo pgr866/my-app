@@ -42,7 +42,7 @@ Some ideas I’m exploring:
 &nbsp;&nbsp;&nbsp;
 ![Kubernetes](assets/kubernetes.svg)
 &nbsp;&nbsp;&nbsp;
-![GitHub Actions](assets/github-actions.svg)
+![GitHub Actions](assets/actions.svg)
 &nbsp;&nbsp;&nbsp;
 ![Jenkins](assets/jenkins.svg)
 </div>
