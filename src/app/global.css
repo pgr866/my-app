@@ -4,7 +4,7 @@
 
 :root,
 .dark {
-  --color-fd-primary: #6D3CA0;
+  --color-fd-primary: #6d3ca0;
   --color-fd-primary-foreground: #fff;
   --color-fd-ring: color-mix(
     in oklab,
@@ -196,4 +196,20 @@ html::before {
     var(--color-fd-primary) 50%,
     var(--color-fd-foreground)
   );
+}
+
+/* sections of the home page fade and rise into place as they scroll into view */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(10px);
+    transition:
+      opacity 380ms ease-out var(--reveal-delay, 0ms),
+      transform 380ms ease-out var(--reveal-delay, 0ms);
+  }
+
+  .reveal.reveal-in {
+    opacity: 1;
+    transform: none;
+  }
 }

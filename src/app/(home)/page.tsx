@@ -12,6 +12,7 @@ import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
 import { DocsBody } from 'fumadocs-ui/layouts/docs/page';
 import { getMDXComponents } from '@/components/mdx';
+import { ScrollReveal } from '@/components/ScrollReveal';
 import { gitConfig } from '@/lib/layout.shared';
 
 const assetsUrl = `https://raw.githubusercontent.com/${gitConfig.user}/${gitConfig.repo}/${gitConfig.branch}/assets/`;
@@ -33,7 +34,10 @@ export default async function HomePage() {
     process.env.NODE_ENV === 'development' ? inlineLocalAssets(readme) : readme;
 
   return (
-    <DocsBody className="mx-auto w-full max-w-[836px] px-4 pt-14 pb-10 [&_img]:my-0 [&_img]:inline [&_:is(h2,h3)_img]:align-middle [&_:is(h2,h3)_img]:me-2 [&_.projects_td]:px-6!">
+    <DocsBody
+      data-reveal-root
+      className="mx-auto w-full max-w-[836px] px-4 pt-14 pb-10 [&_img]:my-0 [&_img]:inline [&_:is(h2,h3)_img]:align-middle [&_:is(h2,h3)_img]:me-2 [&_.projects_td]:px-6!"
+    >
       <Markdown
         remarkPlugins={[remarkGfm, remarkHeading]}
         rehypePlugins={[rehypeRaw]}
@@ -100,6 +104,7 @@ export default async function HomePage() {
       >
         {markdown}
       </Markdown>
+      <ScrollReveal selector="[data-reveal-root]" />
     </DocsBody>
   );
 }
