@@ -19,12 +19,12 @@ const assetsUrl = `https://raw.githubusercontent.com/${gitConfig.user}/${gitConf
 
 const resolveAsset = (src?: string) => src?.replace(/^assets\//, assetsUrl);
 
-// in dev, inline local assets so unpushed images show up without GitHub
 const inlineLocalAssets = (markdown: string) =>
   markdown.replace(/(src|srcset)="assets\/([^"]+)"/g, (match, attr, file) => {
     try {
-      const svg = readFileSync(`assets/${file}`).toString('base64');
-      return `${attr}="data:image/svg+xml;base64,${svg}"`;
+      const mime = file.endsWith('.png') ? 'image/png' : 'image/svg+xml';
+      const data = readFileSync(`assets/${file}`).toString('base64');
+      return `${attr}="data:${mime};base64,${data}"`;
     } catch {
       return match;
     }

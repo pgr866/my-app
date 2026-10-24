@@ -4,10 +4,8 @@ import { icons } from 'lucide-react';
 import { createElement } from 'react';
 import { SiDocker, SiGit, SiKubernetes } from 'react-icons/si';
 
-// Brand icons that Lucide does not provide, usable as `icon: "Docker"`
 const brandIcons = { Docker: SiDocker, Git: SiGit, Kubernetes: SiKubernetes };
 
-// Resolves `icon` names against the brand icons first, then Lucide
 const iconsPlugin: LoaderPlugin = {
   name: 'app:icons',
   transformPageTree: (() => {
@@ -25,7 +23,6 @@ const iconsPlugin: LoaderPlugin = {
   })(),
 };
 
-// See https://fumadocs.dev/docs/headless/source-api for more info
 export const source = loader({
   baseUrl: '/notes',
   source: docs.toFumadocsSource(),
