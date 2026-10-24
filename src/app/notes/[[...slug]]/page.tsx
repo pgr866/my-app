@@ -32,6 +32,7 @@ export default async function Page(props: PageProps<'/notes/[[...slug]]'>) {
     <DocsPage
       toc={page.data.toc}
       full={page.data.full}
+      breadcrumb={{ className: 'page-breadcrumb' }}
       className="md:pt-9 xl:pt-12 md:in-data-[sidebar-collapsed=true]:pt-9 xl:in-data-[sidebar-collapsed=true]:pt-12"
     >
       <DocsTitle>{page.data.title}</DocsTitle>

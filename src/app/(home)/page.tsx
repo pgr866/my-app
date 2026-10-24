@@ -4,6 +4,7 @@ import {
   type ComponentProps,
   type ReactElement,
 } from 'react';
+import { readFileSync } from 'node:fs';
 import { readFile } from 'node:fs/promises';
 import { Markdown } from 'fumadocs-core/content/md';
 import { remarkHeading } from 'fumadocs-core/mdx-plugins';
@@ -15,8 +16,21 @@ import { gitConfig } from '@/lib/layout.shared';
 
 const assetsUrl = `https://raw.githubusercontent.com/${gitConfig.user}/${gitConfig.repo}/${gitConfig.branch}/assets/`;
 
+// in dev, inline local assets so unpushed images show up without GitHub
+const inlineLocalAssets = (markdown: string) =>
+  markdown.replace(/(src|srcset)="assets\/([^"]+)"/g, (match, attr, file) => {
+    try {
+      const svg = readFileSync(`assets/${file}`).toString('base64');
+      return `${attr}="data:image/svg+xml;base64,${svg}"`;
+    } catch {
+      return match;
+    }
+  });
+
 export default async function HomePage() {
-  const markdown = await readFile('README.md', 'utf8');
+  const readme = await readFile('README.md', 'utf8');
+  const markdown =
+    process.env.NODE_ENV === 'development' ? inlineLocalAssets(readme) : readme;
 
   return (
     <DocsBody className="mx-auto w-full max-w-[836px] px-4 pt-14 pb-10 [&_img]:my-0 [&_img]:inline [&_:is(h2,h3)_img]:align-middle [&_:is(h2,h3)_img]:me-2 [&_.projects_td]:px-6!">
@@ -46,14 +60,7 @@ export default async function HomePage() {
               alt?: string;
               height?: string | number;
             }>[];
-            const publicUrl = (url?: string) =>
-              url?.replace(
-                /^public\//,
-                `${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/`,
-              );
-            const dark = publicUrl(
-              nodes.find((n) => n.props.srcSet)?.props.srcSet,
-            );
+            const dark = nodes.find((n) => n.props.srcSet)?.props.srcSet;
             const light = nodes.find((n) => n.props.src)?.props;
             const style = light?.height
               ? { height: Number(light.height), width: 'auto' }
@@ -61,7 +68,7 @@ export default async function HomePage() {
             return (
               <>
                 <img
-                  src={publicUrl(light?.src)}
+                  src={light?.src}
                   alt={light?.alt}
                   style={style}
                   className="dark:hidden!"
@@ -81,12 +88,7 @@ export default async function HomePage() {
               alt={alt ?? ''}
               src={
                 typeof src === 'string'
-                  ? src
-                      .replace(/^assets\//, assetsUrl)
-                      .replace(
-                        /^public\//,
-                        `${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/`,
-                      )
+                  ? src.replace(/^assets\//, assetsUrl)
                   : src
               }
               style={

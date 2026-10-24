@@ -4,21 +4,45 @@
 
 :root,
 .dark {
-  --color-fd-primary: #633691;
+  --color-fd-primary: #6D3CA0;
   --color-fd-primary-foreground: #fff;
-  --color-fd-ring: color-mix(in oklab, #633691 60%, transparent);
+  --color-fd-ring: color-mix(
+    in oklab,
+    var(--color-fd-primary) 60%,
+    transparent
+  );
 }
 
 :root {
-  --color-fd-border: color-mix(in oklab, #633691 12%, transparent);
-  --color-fd-card: color-mix(in oklab, #633691 3%, #f5f5f5);
-  --color-fd-accent: color-mix(in oklab, #633691 8%, transparent);
+  --color-fd-border: color-mix(
+    in oklab,
+    var(--color-fd-primary) 12%,
+    transparent
+  );
+  --color-fd-card: color-mix(in oklab, var(--color-fd-primary) 2%, #f5f5f5);
+  --color-fd-accent: color-mix(
+    in oklab,
+    var(--color-fd-primary) 8%,
+    transparent
+  );
+}
+
+:root:not(.dark) {
+  --color-fd-muted-foreground: hsl(0, 0%, 40%);
 }
 
 .dark {
-  --color-fd-border: color-mix(in oklab, #633691 18%, transparent);
-  --color-fd-card: color-mix(in oklab, #633691 5%, #121212);
-  --color-fd-accent: color-mix(in oklab, #633691 12%, transparent);
+  --color-fd-border: color-mix(
+    in oklab,
+    var(--color-fd-primary) 18%,
+    transparent
+  );
+  --color-fd-card: color-mix(in oklab, var(--color-fd-primary) 3%, #121212);
+  --color-fd-accent: color-mix(
+    in oklab,
+    var(--color-fd-primary) 12%,
+    transparent
+  );
 }
 
 @layer base {
@@ -106,6 +130,10 @@ html::before {
   color: var(--color-fd-foreground);
 }
 
+#nd-toc path.stroke-fd-primary {
+  stroke-opacity: 0.5;
+}
+
 .page-actions > button {
   background-color: color-mix(
     in oklab,
@@ -159,4 +187,13 @@ html::before {
   -webkit-backdrop-filter: blur(18px);
   mask-image: linear-gradient(to bottom, black 0%, transparent);
   -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent);
+}
+
+/* current section in the breadcrumb: halfway between body text and primary */
+.page-breadcrumb .text-fd-primary {
+  color: color-mix(
+    in oklab,
+    var(--color-fd-primary) 50%,
+    var(--color-fd-foreground)
+  );
 }
