@@ -213,3 +213,28 @@ html::before {
     transform: none;
   }
 }
+
+/* lets the project card lights glide between positions instead of jumping */
+@property --mx {
+  syntax: '<length-percentage>';
+  inherits: true;
+  initial-value: 50%;
+}
+
+@property --my {
+  syntax: '<length-percentage>';
+  inherits: true;
+  initial-value: 50%;
+}
+
+[data-spotlight-home] {
+  --mx: 100%;
+  --my: 0%;
+  /* also lists the scroll reveal and hover transitions, which this rule would otherwise override */
+  transition:
+    --mx 450ms ease-out,
+    --my 450ms ease-out,
+    border-color 150ms,
+    opacity 380ms ease-out var(--reveal-delay, 0ms),
+    transform 380ms ease-out var(--reveal-delay, 0ms);
+}

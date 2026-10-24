@@ -17,6 +17,8 @@ import { gitConfig } from '@/lib/layout.shared';
 
 const assetsUrl = `https://raw.githubusercontent.com/${gitConfig.user}/${gitConfig.repo}/${gitConfig.branch}/assets/`;
 
+const resolveAsset = (src?: string) => src?.replace(/^assets\//, assetsUrl);
+
 // in dev, inline local assets so unpushed images show up without GitHub
 const inlineLocalAssets = (markdown: string) =>
   markdown.replace(/(src|srcset)="assets\/([^"]+)"/g, (match, attr, file) => {
@@ -64,7 +66,9 @@ export default async function HomePage() {
               alt?: string;
               height?: string | number;
             }>[];
-            const dark = nodes.find((n) => n.props.srcSet)?.props.srcSet;
+            const dark = resolveAsset(
+              nodes.find((n) => n.props.srcSet)?.props.srcSet,
+            );
             const light = nodes.find((n) => n.props.src)?.props;
             const style = light?.height
               ? { height: Number(light.height), width: 'auto' }
@@ -72,7 +76,7 @@ export default async function HomePage() {
             return (
               <>
                 <img
-                  src={light?.src}
+                  src={resolveAsset(light?.src)}
                   alt={light?.alt}
                   style={style}
                   className="dark:hidden!"
@@ -90,11 +94,7 @@ export default async function HomePage() {
             <img
               {...props}
               alt={alt ?? ''}
-              src={
-                typeof src === 'string'
-                  ? src.replace(/^assets\//, assetsUrl)
-                  : src
-              }
+              src={typeof src === 'string' ? resolveAsset(src) : src}
               style={
                 height ? { height: Number(height), width: 'auto' } : undefined
               }
