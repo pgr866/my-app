@@ -1,0 +1,42 @@
+---
+title: Introduction
+icon: BookOpen
+description: Personal notes on what I have studied and learned.
+---
+
+import { SiDocker, SiGit, SiKubernetes } from 'react-icons/si';
+import { ClipboardList, Cloud } from 'lucide-react';
+
+Welcome to my notes. I am a DevOps & Cloud Engineer, and this is where I collect the technologies I study and use day to day, written in my own words so I can come back to them whenever I need.
+
+<Cards>
+  <Card icon={<ClipboardList />} title="Cheatsheets">
+    Quick references to find what I need without searching again.
+  </Card>
+  <Card icon={<Cloud />} title="DevOps & Cloud">
+    Notes on the tools and technologies of modern infrastructure.
+  </Card>
+</Cards>
+
+## Topics
+
+<Cards className="grid-cols-2 @2xl:grid-cols-3">
+  <Card
+    icon={<SiGit />}
+    title="Git"
+    href="/notes/git"
+    className="flex items-center gap-3 [&>div:first-child]:mb-0 [&>h3]:mb-0"
+  />
+  <Card
+    icon={<SiDocker />}
+    title="Docker"
+    href="/notes/docker"
+    className="flex items-center gap-3 [&>div:first-child]:mb-0 [&>h3]:mb-0"
+  />
+  <Card
+    icon={<SiKubernetes />}
+    title="Kubernetes"
+    href="/notes/kubernetes"
+    className="flex items-center gap-3 [&>div:first-child]:mb-0 [&>h3]:mb-0"
+  />
+</Cards>

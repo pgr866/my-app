@@ -3,7 +3,7 @@ import { FaDiscord, FaGithub, FaLinkedin, FaXTwitter } from 'react-icons/fa6';
 import { Mail } from 'lucide-react';
 
 export const appName = 'Pablo Gómez Rivas';
-export const contentName = 'Content';
+export const notesName = 'Notes';
 
 export const gitConfig = {
   user: 'pgr866',

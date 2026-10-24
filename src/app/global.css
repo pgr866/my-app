@@ -2,9 +2,214 @@
 @import 'fumadocs-ui/css/neutral.css';
 @import 'fumadocs-ui/css/preset.css';
 
+:root,
+.dark {
+  --color-fd-primary: #6d3ca0;
+  --color-fd-primary-foreground: #fff;
+  --color-fd-ring: color-mix(
+    in oklab,
+    var(--color-fd-primary) 60%,
+    transparent
+  );
+}
+
+:root {
+  --color-fd-border: color-mix(
+    in oklab,
+    var(--color-fd-primary) 12%,
+    transparent
+  );
+  --color-fd-card: color-mix(in oklab, var(--color-fd-primary) 2%, #f5f5f5);
+  --color-fd-accent: color-mix(
+    in oklab,
+    var(--color-fd-primary) 8%,
+    transparent
+  );
+}
+
+:root:not(.dark) {
+  --color-fd-muted-foreground: hsl(0, 0%, 40%);
+}
+
+.dark {
+  --color-fd-border: color-mix(
+    in oklab,
+    var(--color-fd-primary) 18%,
+    transparent
+  );
+  --color-fd-card: color-mix(in oklab, var(--color-fd-primary) 3%, #121212);
+  --color-fd-accent: color-mix(
+    in oklab,
+    var(--color-fd-primary) 12%,
+    transparent
+  );
+}
+
 @layer base {
   button:not(:disabled),
   [role='button']:not(:disabled) {
     cursor: pointer;
+  }
+
+  /* slim scrollbars that follow the Fumadocs theme */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-fd-border) transparent;
+  }
+
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--color-fd-border);
+    border-radius: 9999px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-fd-muted-foreground);
+  }
+}
+
+/* the page scrolls inside body and its scrollbar track starts below the header */
+html {
+  overflow: hidden;
+}
+
+body {
+  position: fixed;
+  inset: 0;
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+  /* standard properties would disable the ::-webkit-scrollbar rules below */
+  scrollbar-width: auto;
+  scrollbar-color: auto;
+}
+
+body::-webkit-scrollbar-track {
+  margin-top: 3.5rem;
+}
+
+/* the header covers the scrollbar column too, so it spans the full width */
+html::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 40;
+  width: 8px;
+  height: calc(3.5rem + 1px);
+  pointer-events: none;
+  border-bottom: 1px solid var(--color-fd-border);
+  background-color: color-mix(
+    in oklab,
+    var(--color-fd-background) 60%,
+    transparent
+  );
+}
+
+[data-card] > div.not-prose:first-child {
+  background-color: color-mix(
+    in oklab,
+    var(--color-fd-primary) 12%,
+    transparent
+  );
+  border-color: color-mix(in oklab, var(--color-fd-primary) 35%, transparent);
+  box-shadow: none;
+}
+
+#nd-toc a[data-active='true'] {
+  color: var(--color-fd-foreground);
+}
+
+#nd-toc path.stroke-fd-primary {
+  stroke-opacity: 0.5;
+}
+
+.page-actions > button {
+  background-color: color-mix(
+    in oklab,
+    var(--color-fd-primary) 6%,
+    var(--color-fd-background)
+  );
+  border-color: color-mix(in oklab, var(--color-fd-primary) 28%, transparent);
+  transition:
+    background-color 150ms,
+    border-color 150ms;
+}
+
+.page-actions > button:hover,
+.page-actions > button[data-state='open'] {
+  background-color: color-mix(
+    in oklab,
+    var(--color-fd-primary) 14%,
+    var(--color-fd-background)
+  );
+  border-color: color-mix(in oklab, var(--color-fd-primary) 45%, transparent);
+}
+
+#nd-nav a[data-active='true'] {
+  color: var(--color-fd-foreground);
+}
+
+/* header background is more see-through than the Fumadocs default (80%) */
+#nd-nav > div {
+  background-color: color-mix(
+    in oklab,
+    var(--color-fd-background) 60%,
+    transparent
+  );
+}
+
+/* content fades out softly as it reaches the header */
+#nd-nav::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  top: 100%;
+  z-index: -1;
+  height: 5rem;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    color-mix(in oklab, var(--color-fd-background) 95%, transparent),
+    transparent
+  );
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  mask-image: linear-gradient(to bottom, black 0%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent);
+}
+
+/* current section in the breadcrumb: halfway between body text and primary */
+.page-breadcrumb .text-fd-primary {
+  color: color-mix(
+    in oklab,
+    var(--color-fd-primary) 50%,
+    var(--color-fd-foreground)
+  );
+}
+
+/* sections of the home page fade and rise into place as they scroll into view */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(10px);
+    transition:
+      opacity 380ms ease-out var(--reveal-delay, 0ms),
+      transform 380ms ease-out var(--reveal-delay, 0ms);
+  }
+
+  .reveal.reveal-in {
+    opacity: 1;
+    transform: none;
   }
 }

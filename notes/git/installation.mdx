@@ -1,0 +1,316 @@
+---
+title: Installation
+description: How to install and verify Git on your machine
+---
+
+## Requirements
+
+Git runs on Linux, macOS and Windows. You only need a terminal and permission to install packages.
+
+Before installing, check whether Git is already available:
+
+```bash
+git --version
+```
+
+## Linux
+
+### Debian and Ubuntu
+
+```bash
+sudo apt update
+sudo apt install git
+```
+
+### Fedora and RHEL
+
+```bash
+sudo dnf install git
+```
+
+### Arch Linux
+
+```bash
+sudo pacman -S git
+```
+
+## macOS
+
+The simplest option is Homebrew:
+
+```bash
+brew install git
+```
+
+Alternatively, installing the Xcode command line tools also provides Git:
+
+```bash
+xcode-select --install
+```
+
+## Windows
+
+Download the installer from the official website and follow the wizard. The default options work for most setups.
+
+You can also install it from a terminal with `winget`:
+
+```powershell
+winget install --id Git.Git -e
+```
+
+## Verify the installation
+
+Open a new terminal and run:
+
+```bash
+git --version
+```
+
+The output should show the installed version, for example `git version 2.45.0`.
+
+## First-time setup
+
+Set the identity that will be attached to every commit:
+
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+```
+
+### Default branch
+
+New repositories start with the branch name you choose here:
+
+```bash
+git config --global init.defaultBranch main
+```
+
+### Default editor
+
+```bash
+git config --global core.editor "code --wait"
+```
+
+### Line endings
+
+```bash
+# Linux and macOS
+git config --global core.autocrlf input
+
+# Windows
+git config --global core.autocrlf true
+```
+
+## Check your configuration
+
+List every value Git is using and the file it comes from:
+
+```bash
+git config --list --show-origin
+```
+
+Read a single value:
+
+```bash
+git config user.name
+```
+
+## Authentication
+
+### SSH keys
+
+Generate a key pair:
+
+```bash
+ssh-keygen -t ed25519 -C "you@example.com"
+```
+
+Start the agent and add the key:
+
+```bash
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+```
+
+Copy the public key and add it to your Git hosting account:
+
+```bash
+cat ~/.ssh/id_ed25519.pub
+```
+
+### Test the connection
+
+```bash
+ssh -T git@github.com
+```
+
+### HTTPS and credential helper
+
+If you prefer HTTPS, store your credentials so Git does not ask every time:
+
+```bash
+git config --global credential.helper store
+```
+
+## Useful aliases
+
+Shortcuts save a lot of typing in daily work:
+
+```bash
+git config --global alias.st status
+git config --global alias.co checkout
+git config --global alias.br branch
+git config --global alias.lg "log --oneline --graph --decorate"
+```
+
+## Update Git
+
+Use the same package manager you installed it with:
+
+```bash
+# Debian and Ubuntu
+sudo apt update && sudo apt upgrade git
+
+# macOS
+brew upgrade git
+```
+
+## Uninstall
+
+```bash
+# Debian and Ubuntu
+sudo apt remove git
+
+# macOS
+brew uninstall git
+```
+
+## Troubleshooting
+
+### Command not found
+
+Close and reopen the terminal, then check that Git is in your `PATH`:
+
+```bash
+which git
+```
+
+### Permission denied (publickey)
+
+The key was not added to the agent or to your account. Repeat the SSH steps above and test the connection again.
+
+### Wrong author in commits
+
+Check the values in use and fix them:
+
+```bash
+git config user.name
+git config user.email
+```
+
+## Install from source
+
+Building from source gives you the latest release, which package managers often lag behind.
+
+### Build dependencies
+
+```bash
+# Debian and Ubuntu
+sudo apt install make gcc libssl-dev libcurl4-gnutls-dev libexpat1-dev gettext zlib1g-dev
+```
+
+### Download and compile
+
+```bash
+curl -LO https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.45.0.tar.gz
+tar -xzf git-2.45.0.tar.gz
+cd git-2.45.0
+make prefix=/usr/local all
+sudo make prefix=/usr/local install
+```
+
+## Multiple identities
+
+Use a different identity for work and personal repositories with conditional includes.
+
+### Global file
+
+```ini
+[user]
+    name = Your Name
+    email = you@example.com
+
+[includeIf "gitdir:~/work/"]
+    path = ~/.gitconfig-work
+```
+
+### Work file
+
+```ini
+[user]
+    email = you@company.com
+```
+
+## Signing commits
+
+Signed commits show a verified badge on most hosting platforms.
+
+### With SSH
+
+```bash
+git config --global gpg.format ssh
+git config --global user.signingkey ~/.ssh/id_ed25519.pub
+git config --global commit.gpgsign true
+```
+
+### Verify a signature
+
+```bash
+git log --show-signature -1
+```
+
+## Global ignore file
+
+Keep editor and OS files out of every repository without touching each `.gitignore`:
+
+```bash
+git config --global core.excludesfile ~/.gitignore_global
+```
+
+```bash
+printf ".DS_Store\n.idea/\n.vscode/\n*.swp\n" >> ~/.gitignore_global
+```
+
+## Shell completion
+
+### Bash
+
+```bash
+curl -o ~/.git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+echo "source ~/.git-completion.bash" >> ~/.bashrc
+```
+
+### Zsh
+
+```bash
+autoload -Uz compinit && compinit
+```
+
+## Performance on large repositories
+
+```bash
+git config --global core.fsmonitor true
+git config --global core.untrackedCache true
+git config --global feature.manyFiles true
+```
+
+For very large histories, prefer a shallow or partial clone:
+
+```bash
+git clone --depth 1 https://github.com/user/repo.git
+git clone --filter=blob:none https://github.com/user/repo.git
+```
+
+## Next steps
+
+Once Git is installed and configured, continue with the configuration page.

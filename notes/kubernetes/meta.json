@@ -1,0 +1,5 @@
+{
+  "title": "Kubernetes",
+  "icon": "Kubernetes",
+  "pages": ["installation", "configuration"]
+}
