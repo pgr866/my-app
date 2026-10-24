@@ -78,7 +78,7 @@ A selection of projects where I put cloud automation, infrastructure as code and
 <table class="projects">
   <tr>
     <td align="left" valign="top" width="50%">
-      <h3><img src="assets/icons/layout-dashboard.svg" alt="" height="22"> <a href="https://github.com/pgr866/my-app">Portfolio &amp; Notes</a></h3>
+      <h3><img src="assets/icons/logo.svg" alt="" height="22"> <a href="https://github.com/pgr866/my-app">Portfolio &amp; Notes</a></h3>
       <p>This site: my profile and cheatsheets, built with Next.js and published automatically to GitHub Pages with CI/CD.</p>
       <p><img src="https://img.shields.io/badge/status-live-brightgreen?style=flat-square" alt="Live"></p>
       <p>
