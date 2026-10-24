@@ -78,39 +78,37 @@ A selection of projects where I put cloud automation, infrastructure as code and
 <table class="projects">
   <tr>
     <td align="left" valign="top" width="50%">
-      <h3><img src="assets/icons/logo.svg" alt="" height="22"> <a href="https://github.com/pgr866/my-app">Portfolio &amp; Notes</a></h3>
-      <p>This site: my profile and cheatsheets, built with Next.js and published automatically to GitHub Pages with CI/CD.</p>
-      <p><img src="https://img.shields.io/badge/status-live-brightgreen?style=flat-square" alt="Live"></p>
+      <h3><img src="assets/gcp.svg" alt="" height="22"> <a href="https://github.com/pgr866/microservices-demo">Resilience &amp; Security in Microservices Orchestration</a></h3>
+      <p>Master's thesis: Google's Online Boutique deployed on Kubernetes as a standard and a hardened scenario, to measure what security costs and what it buys in recovery time.</p>
+      <p><img src="https://img.shields.io/badge/status-in_progress-ff9558?style=flat-square" alt="In progress"></p>
       <p>
-      <img src="assets/git.svg" alt="Git" height="26">&nbsp;&nbsp;<img src="assets/docker.svg" alt="Docker" height="26">&nbsp;&nbsp;<img src="assets/actions.svg" alt="GitHub Actions" height="26">
+      <img src="assets/kubernetes.svg" alt="Kubernetes" height="26">&nbsp;&nbsp;<img src="assets/terraform.svg" alt="Terraform" height="26">&nbsp;&nbsp;<img src="assets/azure.svg" alt="Azure" height="26">&nbsp;&nbsp;<img src="assets/docker.svg" alt="Docker" height="26">&nbsp;&nbsp;<img src="assets/actions.svg" alt="GitHub Actions" height="26">&nbsp;&nbsp;<img src="assets/prometheus.svg" alt="Prometheus" height="26">&nbsp;&nbsp;<img src="assets/grafana.svg" alt="Grafana" height="26">
       </p>
     </td>
     <td align="left" valign="top" width="50%">
-      <h3><img src="assets/icons/cloud-upload.svg" alt="" height="22"> Automated Cloud Deployment</h3>
-      <p>CI/CD pipelines that provision infrastructure and ship applications without manual steps.</p>
-      <p><img src="https://img.shields.io/badge/status-in_progress-ff9558?style=flat-square" alt="In progress"></p>
+      <h3><img src="assets/msc-soccer-project.png" alt="" height="22"> <a href="https://github.com/pgr866/msc-soccer-project">msc-soccer-project</a></h3>
+      <p>Master's first-year project: a football players app whose front end switches between a Node and a Spring Boot microservices backend, deployed to Google Cloud Run with CI/CD.</p>
+      <p><img src="https://img.shields.io/badge/status-completed-0ea5e9?style=flat-square" alt="Completed"></p>
       <p>
-      <img src="assets/terraform.svg" alt="Terraform" height="26">&nbsp;&nbsp;<img src="assets/kubernetes.svg" alt="Kubernetes" height="26">
+      <img src="assets/docker.svg" alt="Docker" height="26">&nbsp;&nbsp;<img src="assets/actions.svg" alt="GitHub Actions" height="26">&nbsp;&nbsp;<img src="assets/gcp.svg" alt="Google Cloud" height="26">
       </p>
     </td>
   </tr>
   <tr>
     <td align="left" valign="top" width="50%">
-      <h3><img src="assets/icons/activity.svg" alt="" height="22"> Monitoring &amp; Logging</h3>
-      <p>Metrics, dashboards and centralized logs for full visibility of every service.</p>
-      <p><img src="https://img.shields.io/badge/status-in_progress-ff9558?style=flat-square" alt="In progress"></p>
+      <h3><img src="assets/stratify.svg" alt="" height="22"> <a href="https://github.com/pgr866/Stratify">Stratify</a></h3>
+      <p>Bachelor's thesis: a full stack platform to design, simulate and run algorithmic trading strategies on crypto markets, dockerized and deployed on Azure.</p>
+      <p><img src="https://img.shields.io/badge/status-completed-0ea5e9?style=flat-square" alt="Completed"></p>
       <p>
-      <img src="assets/prometheus.svg" alt="Prometheus" height="26">&nbsp;&nbsp;<img src="assets/grafana.svg" alt="Grafana" height="26">
-      <!-- &nbsp;&nbsp;<img src="assets/elk.svg" alt="ELK" height="26"> -->
+      <img src="assets/python.svg" alt="Python" height="26">&nbsp;&nbsp;<img src="assets/docker.svg" alt="Docker" height="26">&nbsp;&nbsp;<img src="assets/azure.svg" alt="Azure" height="26">
       </p>
     </td>
     <td align="left" valign="top" width="50%">
-      <h3><img src="assets/icons/terminal.svg" alt="" height="22"> Automation Scripts</h3>
-      <p>Scripts that handle routine cloud tasks, so nothing gets done by hand twice.</p>
-      <p><img src="https://img.shields.io/badge/status-archived-lightgrey?style=flat-square" alt="Archived"></p>
+      <h3><img src="assets/icons/logo.svg" alt="" height="22"> <a href="https://github.com/pgr866/my-app">Portfolio &amp; Notes</a></h3>
+      <p>This site: my profile and cheatsheets, built with Next.js and published automatically to GitHub Pages with CI/CD.</p>
+      <p><img src="https://img.shields.io/badge/status-live-brightgreen?style=flat-square" alt="Live"></p>
       <p>
-      <!-- <img src="assets/ansible.svg" alt="Ansible" height="26">&nbsp;&nbsp; -->
-      <img src="assets/python.svg" alt="Python" height="26">
+      <img src="assets/git.svg" alt="Git" height="26">&nbsp;&nbsp;<img src="assets/docker.svg" alt="Docker" height="26">&nbsp;&nbsp;<img src="assets/actions.svg" alt="GitHub Actions" height="26">
       </p>
     </td>
   </tr>

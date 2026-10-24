@@ -11,7 +11,7 @@ export const metadata: Metadata = { title: 'Projects' };
 const statusStyles: Record<ProjectStatus, { label: string; dot: string }> = {
   live: { label: 'Live', dot: 'bg-emerald-500' },
   'in-progress': { label: 'In progress', dot: 'bg-orange-400' },
-  archived: { label: 'Archived', dot: 'bg-neutral-400' },
+  completed: { label: 'Completed', dot: 'bg-sky-500' },
 };
 
 function StatusBadge({ status }: { status: ProjectStatus }) {
@@ -51,16 +51,18 @@ function LinkButton({
 }
 
 function ProjectCard({ project }: { project: Project }) {
-  const { title, description, highlights, status, stack, repo, demo } = project;
+  const { title, kicker, description, highlights, status, stack, repo, demo } =
+    project;
   const Icon = project.icon;
-  const featured = project.featured;
+  const { featured, wide } = project;
 
   return (
     <article
       data-spotlight-home={featured ? '' : undefined}
       className={cn(
         'group relative flex flex-col gap-4 overflow-hidden rounded-xl border border-fd-border bg-fd-card p-6 transition-colors hover:border-fd-primary/50',
-        featured && 'md:col-span-2 md:p-8',
+        featured && 'md:p-8',
+        (featured || wide) && 'md:col-span-2',
       )}
     >
       <div
@@ -78,9 +80,9 @@ function ProjectCard({ project }: { project: Project }) {
         <div className="flex items-center gap-5">
           <Icon className="h-7 w-auto shrink-0 text-fd-foreground" />
           <div>
-            {featured && (
+            {kicker && (
               <p className="text-xs font-medium tracking-wide text-fd-muted-foreground uppercase">
-                Featured project
+                {kicker}
               </p>
             )}
             <h2
