@@ -168,8 +168,11 @@ export default function AboutPage() {
             <p>
               I never left the development side behind. Knowing what the product
               needs lets me design architectures and deployments that make the
-              work of the development team easier, and I keep learning by
-              building, breaking and writing down what I find in my{' '}
+              work of the development team easier.
+            </p>
+            <p>
+              I keep learning by building, breaking and writing down what I find
+              in my{' '}
               <Link
                 href="/notes"
                 className="font-medium text-fd-foreground underline underline-offset-4 decoration-fd-primary/60 hover:decoration-fd-primary"

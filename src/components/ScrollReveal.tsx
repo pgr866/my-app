@@ -2,8 +2,6 @@
 
 import { useEffect } from 'react';
 
-// fades in the direct children of `selector` as they scroll into view;
-// anything already on screen is left alone so there is no flash on load
 export function ScrollReveal({ selector }: { selector: string }) {
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;

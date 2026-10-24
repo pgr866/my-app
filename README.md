@@ -71,7 +71,7 @@ DevOps & Cloud Engineer focused on cloud infrastructure, automation and reliable
 </table>
 </div>
 
-## <img src="assets/icons/rocket.svg" alt="" height="26"> Projects
+## <img src="assets/icons/rocket.svg" alt="" height="26"> [Projects](https://pgr866.github.io/my-app/projects)
 
 A selection of projects where I put cloud automation, infrastructure as code and scalable architectures into practice.
 
@@ -114,7 +114,7 @@ A selection of projects where I put cloud automation, infrastructure as code and
   </tr>
 </table>
 
-## <img src="assets/icons/book-open.svg" alt="" height="26"> Notes
+## <img src="assets/icons/book-open.svg" alt="" height="26"> [Notes](https://pgr866.github.io/my-app/notes)
 
 My personal cheatsheets and study notes, always in progress. Pick a topic to dive in:
 

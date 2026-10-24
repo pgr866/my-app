@@ -19,7 +19,6 @@ const assetsUrl = `https://raw.githubusercontent.com/${gitConfig.user}/${gitConf
 
 const resolveAsset = (src?: string) => src?.replace(/^assets\//, assetsUrl);
 
-// in dev, inline local assets so unpushed images show up without GitHub
 const inlineLocalAssets = (markdown: string) =>
   markdown.replace(/(src|srcset)="assets\/([^"]+)"/g, (match, attr, file) => {
     try {

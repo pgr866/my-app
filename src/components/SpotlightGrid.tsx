@@ -2,10 +2,6 @@
 
 import { useEffect, useRef, type ComponentProps } from 'react';
 
-// tracks the pointer and exposes it to each direct child as --mx / --my, so the
-// children can paint a light that follows the mouse. A child marked with
-// data-spotlight-home keeps its light on: it follows the pointer only while it is
-// hovered and eases back to its default corner (set in CSS) otherwise.
 export function SpotlightGrid(props: ComponentProps<'section'>) {
   const ref = useRef<HTMLElement>(null);
 

@@ -6,6 +6,7 @@
 .dark {
   --color-fd-primary: #6d3ca0;
   --color-fd-primary-foreground: #fff;
+  --color-fd-info: var(--color-fd-primary);
   --color-fd-ring: color-mix(
     in oklab,
     var(--color-fd-primary) 60%,
@@ -51,7 +52,6 @@
     cursor: pointer;
   }
 
-  /* slim scrollbars that follow the Fumadocs theme */
   * {
     scrollbar-width: thin;
     scrollbar-color: var(--color-fd-border) transparent;
@@ -78,7 +78,6 @@
   }
 }
 
-/* the page scrolls inside body and its scrollbar track starts below the header */
 html {
   overflow: hidden;
 }
@@ -89,7 +88,6 @@ body {
   min-height: 0;
   overflow-y: auto;
   scrollbar-gutter: stable;
-  /* standard properties would disable the ::-webkit-scrollbar rules below */
   scrollbar-width: auto;
   scrollbar-color: auto;
 }
@@ -98,7 +96,6 @@ body::-webkit-scrollbar-track {
   margin-top: 3.5rem;
 }
 
-/* the header covers the scrollbar column too, so it spans the full width */
 html::before {
   content: '';
   position: fixed;
@@ -126,7 +123,6 @@ html::before {
   box-shadow: none;
 }
 
-/* cards whose icon sits bare, without its tile */
 .card-bare > div.not-prose:first-child {
   padding: 0;
   border: 0;
@@ -173,7 +169,6 @@ html::before {
   color: var(--color-fd-foreground);
 }
 
-/* header background is more see-through than the Fumadocs default (80%) */
 #nd-nav > div {
   background-color: color-mix(
     in oklab,
@@ -182,7 +177,6 @@ html::before {
   );
 }
 
-/* content fades out softly as it reaches the header */
 #nd-nav::after {
   content: '';
   position: absolute;
@@ -202,7 +196,6 @@ html::before {
   -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent);
 }
 
-/* current section in the breadcrumb: halfway between body text and primary */
 .page-breadcrumb .text-fd-primary {
   color: color-mix(
     in oklab,
@@ -211,7 +204,6 @@ html::before {
   );
 }
 
-/* sections of the home page fade and rise into place as they scroll into view */
 @media (prefers-reduced-motion: no-preference) {
   .reveal {
     opacity: 0;
@@ -227,7 +219,6 @@ html::before {
   }
 }
 
-/* lets the project card lights glide between positions instead of jumping */
 @property --mx {
   syntax: '<length-percentage>';
   inherits: true;
@@ -243,7 +234,6 @@ html::before {
 [data-spotlight-home] {
   --mx: 100%;
   --my: 0%;
-  /* also lists the scroll reveal and hover transitions, which this rule would otherwise override */
   transition:
     --mx 450ms ease-out,
     --my 450ms ease-out,
