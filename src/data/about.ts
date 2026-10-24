@@ -16,7 +16,6 @@ import {
   SiLinux,
   SiMongodb,
   SiNextdotjs,
-  SiOpenjdk,
   SiOpenstack,
   SiPostgresql,
   SiPrometheus,
@@ -28,6 +27,7 @@ import {
   SiTerraform,
   SiTypescript,
 } from 'react-icons/si';
+import { FaJava } from 'react-icons/fa';
 import { VscAzure } from 'react-icons/vsc';
 import {
   ArrowLeftRight,
@@ -139,7 +139,7 @@ export const skills: {
           { name: 'Python', icon: SiPython },
           { name: 'TypeScript', icon: SiTypescript },
           { name: 'JavaScript', icon: SiJavascript },
-          { name: 'Java', icon: SiOpenjdk },
+          { name: 'Java', icon: FaJava },
           { name: 'SQL', icon: Database },
           { name: 'Bash', icon: SiGnubash },
         ],
