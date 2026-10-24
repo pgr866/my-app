@@ -82,15 +82,15 @@ A selection of projects where I put cloud automation, infrastructure as code and
       <p>Master's thesis: Google's Online Boutique deployed on Kubernetes as a standard and a hardened scenario, to measure what security costs and what it buys in recovery time.</p>
       <p><img src="https://img.shields.io/badge/status-in_progress-ff9558?style=flat-square" alt="In progress"></p>
       <p>
-      <img src="assets/kubernetes.svg" alt="Kubernetes" height="26">&nbsp;&nbsp;<img src="assets/terraform.svg" alt="Terraform" height="26">&nbsp;&nbsp;<img src="assets/azure.svg" alt="Azure" height="26">&nbsp;&nbsp;<img src="assets/docker.svg" alt="Docker" height="26">&nbsp;&nbsp;<img src="assets/actions.svg" alt="GitHub Actions" height="26">&nbsp;&nbsp;<img src="assets/prometheus.svg" alt="Prometheus" height="26">&nbsp;&nbsp;<img src="assets/grafana.svg" alt="Grafana" height="26">
+      <img src="assets/actions.svg" alt="GitHub Actions" height="26">&nbsp;&nbsp;<img src="assets/argocd.svg" alt="Argo CD" height="26">&nbsp;&nbsp;<img src="assets/docker.svg" alt="Docker" height="26">&nbsp;&nbsp;<img src="assets/kubernetes.svg" alt="Kubernetes" height="26">&nbsp;&nbsp;<img src="assets/terraform.svg" alt="Terraform" height="26">&nbsp;&nbsp;<img src="assets/azure.svg" alt="Azure" height="26">&nbsp;&nbsp;<img src="assets/prometheus.svg" alt="Prometheus" height="26">&nbsp;&nbsp;<img src="assets/grafana.svg" alt="Grafana" height="26">&nbsp;&nbsp;<img src="assets/k6.svg" alt="k6" height="26">&nbsp;&nbsp;<img src="assets/trivy.svg" alt="Trivy" height="26">
       </p>
     </td>
     <td align="left" valign="top" width="50%">
       <h3><img src="assets/msc-soccer-project.png" alt="" height="22"> <a href="https://github.com/pgr866/msc-soccer-project">msc-soccer-project</a></h3>
-      <p>Master's first-year project: a football players app whose front end switches between a Node and a Spring Boot microservices backend, deployed to Google Cloud Run with CI/CD.</p>
+      <p>Master's first-year project: a football players app whose front end switches between a Node and a Spring Boot microservices backend, deployed to Google Cloud Run with CI/CD.<br><br></p>
       <p><img src="https://img.shields.io/badge/status-completed-0ea5e9?style=flat-square" alt="Completed"></p>
       <p>
-      <img src="assets/docker.svg" alt="Docker" height="26">&nbsp;&nbsp;<img src="assets/actions.svg" alt="GitHub Actions" height="26">&nbsp;&nbsp;<img src="assets/gcp.svg" alt="Google Cloud" height="26">
+      <img src="assets/angular.svg" alt="Angular" height="26">&nbsp;&nbsp;<img src="assets/ionic.svg" alt="Ionic" height="26">&nbsp;&nbsp;<img src="assets/express.svg" alt="Express" height="26">&nbsp;&nbsp;<img src="assets/springboot.svg" alt="Spring Boot" height="26">&nbsp;&nbsp;<img src="assets/actions.svg" alt="GitHub Actions" height="26">&nbsp;&nbsp;<img src="assets/docker.svg" alt="Docker" height="26">&nbsp;&nbsp;<img src="assets/gcp.svg" alt="Google Cloud" height="26">&nbsp;&nbsp;<img src="assets/postgresql.svg" alt="PostgreSQL" height="26">&nbsp;&nbsp;<img src="assets/mongodb.svg" alt="MongoDB" height="26">&nbsp;&nbsp;<img src="assets/firebase.svg" alt="Firebase" height="26">
       </p>
     </td>
   </tr>
@@ -100,7 +100,7 @@ A selection of projects where I put cloud automation, infrastructure as code and
       <p>Bachelor's thesis: a full stack platform to design, simulate and run algorithmic trading strategies on crypto markets, dockerized and deployed on Azure.</p>
       <p><img src="https://img.shields.io/badge/status-completed-0ea5e9?style=flat-square" alt="Completed"></p>
       <p>
-      <img src="assets/python.svg" alt="Python" height="26">&nbsp;&nbsp;<img src="assets/docker.svg" alt="Docker" height="26">&nbsp;&nbsp;<img src="assets/azure.svg" alt="Azure" height="26">
+      <img src="assets/python.svg" alt="Python" height="26">&nbsp;&nbsp;<img src="assets/typescript.svg" alt="TypeScript" height="26">&nbsp;&nbsp;<img src="assets/react.svg" alt="React" height="26">&nbsp;&nbsp;<img src="assets/tailwindcss.svg" alt="Tailwind CSS" height="26">&nbsp;&nbsp;<img src="assets/django.svg" alt="Django" height="26">&nbsp;&nbsp;<img src="assets/docker.svg" alt="Docker" height="26">&nbsp;&nbsp;<img src="assets/azure.svg" alt="Azure" height="26">&nbsp;&nbsp;<img src="assets/postgresql.svg" alt="PostgreSQL" height="26">
       </p>
     </td>
     <td align="left" valign="top" width="50%">
@@ -108,7 +108,7 @@ A selection of projects where I put cloud automation, infrastructure as code and
       <p>This site: my profile and cheatsheets, built with Next.js and published automatically to GitHub Pages with CI/CD.</p>
       <p><img src="https://img.shields.io/badge/status-live-brightgreen?style=flat-square" alt="Live"></p>
       <p>
-      <img src="assets/git.svg" alt="Git" height="26">&nbsp;&nbsp;<img src="assets/docker.svg" alt="Docker" height="26">&nbsp;&nbsp;<img src="assets/actions.svg" alt="GitHub Actions" height="26">
+      <img src="assets/typescript.svg" alt="TypeScript" height="26">&nbsp;&nbsp;<img src="assets/nextjs.svg" alt="Next.js" height="26">&nbsp;&nbsp;<img src="assets/tailwindcss.svg" alt="Tailwind CSS" height="26">&nbsp;&nbsp;<img src="assets/git.svg" alt="Git" height="26">&nbsp;&nbsp;<img src="assets/actions.svg" alt="GitHub Actions" height="26">&nbsp;&nbsp;<img src="assets/docker.svg" alt="Docker" height="26">
       </p>
     </td>
   </tr>
