@@ -5,9 +5,11 @@ import { ArrowRight, Languages, MapPin } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa6';
 import { Mail } from 'lucide-react';
 import { ScrollReveal } from '@/components/ScrollReveal';
+import { SpotlightGrid } from '@/components/SpotlightGrid';
 import { education, experience, skills, type Tech } from '@/data/about';
 import { gitConfig } from '@/lib/layout.shared';
-import avatar from './avatar.png';
+import { slugify } from '@/lib/slug';
+import avatar from '../../../assets/avatar.png';
 
 export const metadata: Metadata = {
   title: 'About me',
@@ -29,9 +31,14 @@ const links = [
   { label: 'Email', href: 'mailto:pgr866@gmail.com', icon: Mail },
 ];
 
-function SectionTitle({ children }: { children: React.ReactNode }) {
+function SectionTitle({ children }: { children: string }) {
   return (
-    <h2 className="mb-6 text-2xl font-semibold tracking-tight">{children}</h2>
+    <h2
+      id={slugify(children)}
+      className="mb-6 scroll-mt-20 text-2xl font-semibold tracking-tight"
+    >
+      {children}
+    </h2>
   );
 }
 
@@ -84,9 +91,22 @@ function Timeline({
   );
 }
 
+function CardGlow() {
+  return (
+    <div
+      aria-hidden
+      className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+      style={{
+        background:
+          'radial-gradient(380px circle at var(--mx, 50%) var(--my, 50%), color-mix(in oklab, var(--color-fd-primary) 8%, transparent), transparent 70%)',
+      }}
+    />
+  );
+}
+
 export default function AboutPage() {
   return (
-    <main className="mx-auto w-full max-w-[836px] flex-1 px-4 pt-14 pb-16">
+    <main className="mx-auto w-full max-w-[836px] flex-1 overflow-x-clip px-4 pt-14 pb-16 min-[940px]:overflow-visible">
       <div data-reveal-root className="flex flex-col gap-16">
         <section className="relative flex flex-col-reverse items-start gap-8 sm:flex-row sm:items-center sm:justify-between">
           <div
@@ -107,9 +127,19 @@ export default function AboutPage() {
               <MapPin className="size-4" /> Almería, Spain
             </p>
             <p className="text-fd-muted-foreground">
-              DevOps &amp; Cloud Engineer focused on CI/CD pipeline automation,
-              infrastructure as code (IaC) and container orchestration. My
-              background in software engineering and full-stack development
+              DevOps &amp; Cloud Engineer focused on{' '}
+              <strong className="text-fd-foreground">
+                CI/CD pipeline automation
+              </strong>
+              ,{' '}
+              <strong className="text-fd-foreground">
+                infrastructure as code (IaC)
+              </strong>{' '}
+              and{' '}
+              <strong className="text-fd-foreground">
+                container orchestration
+              </strong>
+              . My background in software engineering and full-stack development
               gives me a comprehensive view of product requirements, allowing me
               to design architectures and deployments that streamline the
               development team&apos;s workflow.
@@ -211,15 +241,21 @@ export default function AboutPage() {
 
         <section>
           <SectionTitle>Skills</SectionTitle>
-          <div className="grid gap-4 md:grid-cols-2">
+          <SpotlightGrid className="grid gap-4 md:grid-cols-2">
             {skills.map(({ title, groups }) => (
               <article
                 key={title}
-                className="flex flex-col gap-4 rounded-xl border border-fd-border bg-fd-card p-6"
+                className="group relative flex flex-col gap-4 overflow-hidden rounded-xl border border-fd-border bg-fd-card p-6 transition-colors hover:border-fd-primary/50"
               >
-                <h3 className="text-lg font-semibold">{title}</h3>
+                <CardGlow />
+                <h3
+                  id={slugify(title)}
+                  className="relative scroll-mt-20 text-lg font-semibold"
+                >
+                  {title}
+                </h3>
                 {groups.map(({ label, items }) => (
-                  <div key={label} className="flex flex-col gap-2">
+                  <div key={label} className="relative flex flex-col gap-2">
                     <p className="text-xs font-medium tracking-wide text-fd-muted-foreground uppercase">
                       {label}
                     </p>
@@ -232,29 +268,32 @@ export default function AboutPage() {
                 ))}
               </article>
             ))}
-          </div>
+          </SpotlightGrid>
         </section>
 
         <section>
           <SectionTitle>Languages</SectionTitle>
-          <div className="grid gap-4 md:grid-cols-2">
-            <article className="flex items-start gap-3 rounded-xl border border-fd-border bg-fd-card p-6">
-              <Languages className="mt-0.5 size-5 shrink-0" />
-              <div>
+          <SpotlightGrid className="grid gap-4 md:grid-cols-2">
+            <article className="group relative flex items-start gap-3 overflow-hidden rounded-xl border border-fd-border bg-fd-card p-6 transition-colors hover:border-fd-primary/50">
+              <CardGlow />
+              <Languages className="relative mt-0.5 size-5 shrink-0" />
+              <div className="relative">
                 <h3 className="font-semibold">Spanish</h3>
                 <p className="text-sm text-fd-muted-foreground">Native</p>
               </div>
             </article>
-            <article className="flex items-start gap-3 rounded-xl border border-fd-border bg-fd-card p-6">
-              <Languages className="mt-0.5 size-5 shrink-0" />
-              <div>
+            <article className="group relative flex items-start gap-3 overflow-hidden rounded-xl border border-fd-border bg-fd-card p-6 transition-colors hover:border-fd-primary/50">
+              <CardGlow />
+              <Languages className="relative mt-0.5 size-5 shrink-0" />
+              <div className="relative">
                 <h3 className="font-semibold">English</h3>
                 <p className="text-sm text-fd-muted-foreground">
-                  Advanced · B2 · Cambridge English: First (FCE), Sep 2019
+                  Advanced · Cambridge English: First (FCE) | B2
                 </p>
+                <p className="text-sm text-fd-muted-foreground">Sep 2019</p>
               </div>
             </article>
-          </div>
+          </SpotlightGrid>
         </section>
 
         <section className="flex flex-col items-start gap-4 rounded-xl border border-fd-border bg-fd-card p-6 sm:flex-row sm:items-center sm:justify-between">

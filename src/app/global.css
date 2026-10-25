@@ -92,6 +92,10 @@ body {
   scrollbar-color: auto;
 }
 
+html body[data-scroll-locked] {
+  position: fixed !important;
+}
+
 body::-webkit-scrollbar-track {
   margin-top: 3.5rem;
 }
@@ -111,58 +115,6 @@ html::before {
     var(--color-fd-background) 60%,
     transparent
   );
-}
-
-[data-card]:not(.card-bare) > div.not-prose:first-child {
-  background-color: color-mix(
-    in oklab,
-    var(--color-fd-primary) 12%,
-    transparent
-  );
-  border-color: color-mix(in oklab, var(--color-fd-primary) 35%, transparent);
-  box-shadow: none;
-}
-
-.card-bare > div.not-prose:first-child {
-  padding: 0;
-  border: 0;
-  background: none;
-  box-shadow: none;
-}
-
-.card-bare > div.not-prose:first-child svg {
-  width: 1.25rem;
-  height: 1.25rem;
-}
-
-#nd-toc a[data-active='true'] {
-  color: var(--color-fd-foreground);
-}
-
-#nd-toc path.stroke-fd-primary {
-  stroke-opacity: 0.5;
-}
-
-.page-actions > button {
-  background-color: color-mix(
-    in oklab,
-    var(--color-fd-primary) 6%,
-    var(--color-fd-background)
-  );
-  border-color: color-mix(in oklab, var(--color-fd-primary) 28%, transparent);
-  transition:
-    background-color 150ms,
-    border-color 150ms;
-}
-
-.page-actions > button:hover,
-.page-actions > button[data-state='open'] {
-  background-color: color-mix(
-    in oklab,
-    var(--color-fd-primary) 14%,
-    var(--color-fd-background)
-  );
-  border-color: color-mix(in oklab, var(--color-fd-primary) 45%, transparent);
 }
 
 #nd-nav a[data-active='true'] {
@@ -196,12 +148,141 @@ html::before {
   -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent);
 }
 
+@keyframes nav-shadow-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1279px) {
+  body:has([data-toc-popover]) #nd-nav::after {
+    top: calc(100% + 2.5rem);
+  }
+
+  @supports (animation-timeline: scroll()) {
+    body:has([data-toc-popover]) #nd-nav::after {
+      animation: nav-shadow-in linear both;
+      animation-timeline: scroll(nearest block);
+      animation-range: 0 80px;
+    }
+  }
+}
+
+[data-sidebar-placeholder] {
+  z-index: 45;
+}
+
+#nd-sidebar,
+#nd-sidebar-mobile {
+  --color-fd-card: hsl(0, 0%, 94.7%);
+}
+
+.dark #nd-sidebar,
+.dark #nd-sidebar-mobile {
+  --color-fd-card: hsl(0, 0%, 9.8%);
+}
+
+#nd-sidebar-mobile {
+  background-color: var(--color-fd-card);
+}
+
+#nd-sidebar a[data-active='true'],
+#nd-sidebar-mobile a[data-active='true'] {
+  color: color-mix(
+    in oklab,
+    var(--color-fd-primary) 45%,
+    var(--color-fd-foreground)
+  );
+  font-weight: 500;
+}
+
+#nd-sidebar > :first-child {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+}
+
+#nd-sidebar > :first-child > :first-child {
+  display: contents;
+}
+
+#nd-sidebar > :first-child > :first-child > a {
+  display: none;
+}
+
+#nd-sidebar > :first-child > :first-child > button {
+  order: 1;
+  margin-bottom: 0;
+}
+
+#nd-sidebar > :last-child > div {
+  justify-content: space-between;
+  padding-inline-end: 2px;
+}
+
+#nd-toc a[data-active='true'],
+[data-toc-popover] a[data-active='true'] {
+  color: var(--color-fd-foreground);
+}
+
+#nd-toc path.stroke-fd-primary,
+[data-toc-popover] path.stroke-fd-primary {
+  stroke-opacity: 0.5;
+}
+
 .page-breadcrumb .text-fd-primary {
   color: color-mix(
     in oklab,
     var(--color-fd-primary) 50%,
     var(--color-fd-foreground)
   );
+}
+
+.page-actions > button {
+  background-color: color-mix(
+    in oklab,
+    var(--color-fd-primary) 6%,
+    var(--color-fd-background)
+  );
+  border-color: color-mix(in oklab, var(--color-fd-primary) 28%, transparent);
+  transition:
+    background-color 150ms,
+    border-color 150ms;
+}
+
+.page-actions > button:hover,
+.page-actions > button[data-state='open'] {
+  background-color: color-mix(
+    in oklab,
+    var(--color-fd-primary) 14%,
+    var(--color-fd-background)
+  );
+  border-color: color-mix(in oklab, var(--color-fd-primary) 45%, transparent);
+}
+
+[data-card]:not(.card-bare) > div.not-prose:first-child {
+  background-color: color-mix(
+    in oklab,
+    var(--color-fd-primary) 12%,
+    transparent
+  );
+  border-color: color-mix(in oklab, var(--color-fd-primary) 35%, transparent);
+  box-shadow: none;
+}
+
+.card-bare > div.not-prose:first-child {
+  padding: 0;
+  border: 0;
+  background: none;
+  box-shadow: none;
+}
+
+.card-bare > div.not-prose:first-child svg {
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -234,6 +315,13 @@ html::before {
 [data-spotlight-home] {
   --mx: 100%;
   --my: 0%;
+  transition:
+    border-color 150ms,
+    opacity 380ms ease-out var(--reveal-delay, 0ms),
+    transform 380ms ease-out var(--reveal-delay, 0ms);
+}
+
+[data-spotlight-home]:not(:hover) {
   transition:
     --mx 450ms ease-out,
     --my 450ms ease-out,

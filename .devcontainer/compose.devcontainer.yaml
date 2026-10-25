@@ -1,0 +1,5 @@
+# Workaround for docker/compose#14286: the image is built beforehand (initializeCommand).
+services:
+  app:
+    image: my-app-app
+    build: !reset null

@@ -16,7 +16,6 @@ import {
   SiLinux,
   SiMongodb,
   SiNextdotjs,
-  SiOpenjdk,
   SiOpenstack,
   SiPostgresql,
   SiPrometheus,
@@ -28,6 +27,7 @@ import {
   SiTerraform,
   SiTypescript,
 } from 'react-icons/si';
+import { FaJava } from 'react-icons/fa';
 import { VscAzure } from 'react-icons/vsc';
 import {
   ArrowLeftRight,
@@ -48,6 +48,32 @@ import {
 export type Tech = {
   name: string;
   icon?: ComponentType<{ className?: string }>;
+};
+
+export const aboutText = {
+  greeting: "Hi there, I'm",
+  name: 'Pablo Gómez Rivas',
+  role: 'DevOps & Cloud Engineer',
+  location: 'Almería, Spain',
+  cta: {
+    title: "See what I've built",
+    text: 'Thesis work, side projects and the cheatsheets I keep for myself.',
+  },
+  summary:
+    "DevOps & Cloud Engineer focused on CI/CD pipeline automation, infrastructure as code (IaC) and container orchestration. My background in software engineering and full-stack development gives me a comprehensive view of product requirements, allowing me to design architectures and deployments that streamline the development team's workflow.",
+  story: [
+    'I started out as a full stack developer, building interfaces and APIs and caring about how all the pieces of a product fit together.',
+    'Then containers won me over: the idea that one image runs the same everywhere, and that something like Kubernetes can keep whole systems alive on its own. That fascination pulled me towards DevOps and the cloud: pipelines, infrastructure as code and everything around shipping software reliably.',
+    'I never left the development side behind. Knowing what the product needs lets me design architectures and deployments that make the work of the development team easier.',
+    'I keep learning by building, breaking and writing down what I find in my notes.',
+  ],
+  languages: [
+    { name: 'Spanish', detail: 'Native' },
+    {
+      name: 'English',
+      detail: 'Advanced · Cambridge English: First (FCE) | B2 · Sep 2019',
+    },
+  ],
 };
 
 export const experience = [
@@ -139,7 +165,7 @@ export const skills: {
           { name: 'Python', icon: SiPython },
           { name: 'TypeScript', icon: SiTypescript },
           { name: 'JavaScript', icon: SiJavascript },
-          { name: 'Java', icon: SiOpenjdk },
+          { name: 'Java', icon: FaJava },
           { name: 'SQL', icon: Database },
           { name: 'Bash', icon: SiGnubash },
         ],

@@ -90,7 +90,7 @@ A selection of projects where I put cloud automation, infrastructure as code and
       <p>Master's first-year project: a football players app whose front end switches between a Node and a Spring Boot microservices backend, deployed to Google Cloud Run with CI/CD.<br><br></p>
       <p><img src="https://img.shields.io/badge/status-completed-0ea5e9?style=flat-square" alt="Completed"></p>
       <p>
-      <img src="assets/angular.svg" alt="Angular" height="26">&nbsp;&nbsp;<img src="assets/ionic.svg" alt="Ionic" height="26">&nbsp;&nbsp;<img src="assets/express.svg" alt="Express" height="26">&nbsp;&nbsp;<img src="assets/springboot.svg" alt="Spring Boot" height="26">&nbsp;&nbsp;<img src="assets/actions.svg" alt="GitHub Actions" height="26">&nbsp;&nbsp;<img src="assets/docker.svg" alt="Docker" height="26">&nbsp;&nbsp;<img src="assets/gcp.svg" alt="Google Cloud" height="26">&nbsp;&nbsp;<img src="assets/postgresql.svg" alt="PostgreSQL" height="26">&nbsp;&nbsp;<img src="assets/mongodb.svg" alt="MongoDB" height="26">&nbsp;&nbsp;<img src="assets/firebase.svg" alt="Firebase" height="26">
+      <img src="assets/angular.svg" alt="Angular" height="26">&nbsp;&nbsp;<img src="assets/ionic.svg" alt="Ionic" height="26">&nbsp;&nbsp;<img src="assets/express.svg" alt="Express" height="26">&nbsp;&nbsp;<img src="assets/springboot.svg" alt="Spring Boot" height="26">&nbsp;&nbsp;<img src="assets/supabase.svg" alt="Supabase" height="26">&nbsp;&nbsp;<img src="assets/mongodb.svg" alt="MongoDB" height="26">&nbsp;&nbsp;<img src="assets/firebase.svg" alt="Firebase" height="26">&nbsp;&nbsp;<img src="assets/actions.svg" alt="GitHub Actions" height="26">&nbsp;&nbsp;<img src="assets/docker.svg" alt="Docker" height="26">&nbsp;&nbsp;<img src="assets/gcp.svg" alt="Google Cloud" height="26">
       </p>
     </td>
   </tr>
@@ -100,7 +100,7 @@ A selection of projects where I put cloud automation, infrastructure as code and
       <p>Bachelor's thesis: a full stack platform to design, simulate and run algorithmic trading strategies on crypto markets, dockerized and deployed on Azure.</p>
       <p><img src="https://img.shields.io/badge/status-completed-0ea5e9?style=flat-square" alt="Completed"></p>
       <p>
-      <img src="assets/python.svg" alt="Python" height="26">&nbsp;&nbsp;<img src="assets/typescript.svg" alt="TypeScript" height="26">&nbsp;&nbsp;<img src="assets/react.svg" alt="React" height="26">&nbsp;&nbsp;<img src="assets/tailwindcss.svg" alt="Tailwind CSS" height="26">&nbsp;&nbsp;<img src="assets/django.svg" alt="Django" height="26">&nbsp;&nbsp;<img src="assets/docker.svg" alt="Docker" height="26">&nbsp;&nbsp;<img src="assets/azure.svg" alt="Azure" height="26">&nbsp;&nbsp;<img src="assets/postgresql.svg" alt="PostgreSQL" height="26">
+      <img src="assets/react.svg" alt="React" height="26">&nbsp;&nbsp;<img src="assets/typescript.svg" alt="TypeScript" height="26">&nbsp;&nbsp;<img src="assets/tailwindcss.svg" alt="Tailwind CSS" height="26">&nbsp;&nbsp;<img src="assets/django.svg" alt="Django" height="26">&nbsp;&nbsp;<img src="assets/python.svg" alt="Python" height="26">&nbsp;&nbsp;<img src="assets/postgresql.svg" alt="PostgreSQL" height="26">&nbsp;&nbsp;<img src="assets/docker.svg" alt="Docker" height="26">&nbsp;&nbsp;<img src="assets/azure.svg" alt="Azure" height="26">
       </p>
     </td>
     <td align="left" valign="top" width="50%">
@@ -108,7 +108,7 @@ A selection of projects where I put cloud automation, infrastructure as code and
       <p>This site: my profile and cheatsheets, built with Next.js and published automatically to GitHub Pages with CI/CD.</p>
       <p><img src="https://img.shields.io/badge/status-live-brightgreen?style=flat-square" alt="Live"></p>
       <p>
-      <img src="assets/typescript.svg" alt="TypeScript" height="26">&nbsp;&nbsp;<img src="assets/nextjs.svg" alt="Next.js" height="26">&nbsp;&nbsp;<img src="assets/tailwindcss.svg" alt="Tailwind CSS" height="26">&nbsp;&nbsp;<img src="assets/git.svg" alt="Git" height="26">&nbsp;&nbsp;<img src="assets/actions.svg" alt="GitHub Actions" height="26">&nbsp;&nbsp;<img src="assets/docker.svg" alt="Docker" height="26">
+      <img src="assets/nextjs.svg" alt="Next.js" height="26">&nbsp;&nbsp;<img src="assets/fumadocs.png" alt="Fumadocs" height="26">&nbsp;&nbsp;<img src="assets/typescript.svg" alt="TypeScript" height="26">&nbsp;&nbsp;<img src="assets/tailwindcss.svg" alt="Tailwind CSS" height="26">&nbsp;&nbsp;<img src="assets/actions.svg" alt="GitHub Actions" height="26">&nbsp;&nbsp;<img src="assets/docker.svg" alt="Docker" height="26">
       </p>
     </td>
   </tr>

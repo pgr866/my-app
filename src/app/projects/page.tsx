@@ -4,14 +4,23 @@ import { FaGithub } from 'react-icons/fa6';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { SpotlightGrid } from '@/components/SpotlightGrid';
 import { cn } from '@/lib/cn';
-import { projects, type Project, type ProjectStatus } from '@/data/projects';
+import { slugify } from '@/lib/slug';
+import {
+  projects,
+  projectsText,
+  type Project,
+  type ProjectStatus,
+} from '@/data/projects';
 
 export const metadata: Metadata = { title: 'Projects' };
 
 const statusStyles: Record<ProjectStatus, { label: string; dot: string }> = {
-  live: { label: 'Live', dot: 'bg-emerald-500' },
-  'in-progress': { label: 'In progress', dot: 'bg-orange-400' },
-  completed: { label: 'Completed', dot: 'bg-sky-500' },
+  live: { label: projectsText.status.live, dot: 'bg-emerald-500' },
+  'in-progress': {
+    label: projectsText.status['in-progress'],
+    dot: 'bg-orange-400',
+  },
+  completed: { label: projectsText.status.completed, dot: 'bg-sky-500' },
 };
 
 function StatusBadge({ status }: { status: ProjectStatus }) {
@@ -58,9 +67,10 @@ function ProjectCard({ project }: { project: Project }) {
 
   return (
     <article
+      id={slugify(title)}
       data-spotlight-home={featured ? '' : undefined}
       className={cn(
-        'group relative flex flex-col gap-4 overflow-hidden rounded-xl border border-fd-border bg-fd-card p-6 transition-colors hover:border-fd-primary/50',
+        'group relative flex scroll-mt-20 flex-col gap-4 overflow-hidden rounded-xl border border-fd-border bg-fd-card p-6 transition-colors hover:border-fd-primary/50',
         featured && 'md:p-8',
         (featured || wide) && 'md:col-span-2',
       )}
@@ -100,7 +110,7 @@ function ProjectCard({ project }: { project: Project }) {
       <ul className="relative flex flex-col gap-2 text-sm">
         {highlights.map((item) => (
           <li key={item} className="flex gap-2">
-            <Check className="mt-0.5 size-4 shrink-0 text-fd-primary dark:text-fd-foreground/70" />
+            <Check className="mt-0.5 size-4 shrink-0 text-fd-primary" />
             <span>{item}</span>
           </li>
         ))}
@@ -143,8 +153,7 @@ export default function ProjectsPage() {
         <header className="flex flex-col gap-3">
           <h1 className="text-4xl font-bold tracking-tight">Projects</h1>
           <p className="max-w-xl text-lg text-fd-muted-foreground">
-            A selection of projects where I put cloud automation, infrastructure
-            as code and scalable architectures into practice.
+            {projectsText.intro}
           </p>
         </header>
 

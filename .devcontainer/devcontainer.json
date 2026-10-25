@@ -1,21 +1,29 @@
 {
   "name": "my-app",
-  "dockerComposeFile": "../compose.yaml",
+  "dockerComposeFile": ["../compose.yaml", "compose.devcontainer.yaml"],
+  "initializeCommand": "docker compose --project-name my-app build app",
   "service": "app",
+  "runServices": ["app"],
+  "remoteEnv": {
+    "GIT_CONFIG_COUNT": "1",
+    "GIT_CONFIG_KEY_0": "url.https://github.com/.insteadOf",
+    "GIT_CONFIG_VALUE_0": "git@github.com:"
+  },
   "workspaceFolder": "/app",
   "overrideCommand": true,
-  "initializeCommand": "(git config --get user.name || echo 'Developer') > .devcontainer/.git_name && (git config --get user.email || echo 'dev@example.com') > .devcontainer/.git_email && clear",
-  "postCreateCommand": "git config --global url.\"https://github.com/\".insteadOf git@github.com: && git config --global user.name \"$(cat .devcontainer/.git_name)\" && git config --global user.email \"$(cat .devcontainer/.git_email)\" && rm .devcontainer/.git_name .devcontainer/.git_email && clear",
-  "postStartCommand": "npm run dev",
+  "postStartCommand": ["npm", "run", "dev"],
   "customizations": {
     "vscode": {
+      "settings": {
+        "git.openRepositoryInParentFolders": "always",
+        "terminal.integrated.defaultProfile.linux": "bash"
+      },
       "extensions": [
         "yoavbls.pretty-ts-errors",
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
         "bradlc.vscode-tailwindcss",
-        "unifiedjs.vscode-mdx",
-        "github.copilot-chat"
+        "unifiedjs.vscode-mdx"
       ]
     }
   }
