@@ -35,9 +35,9 @@ jobs:
       - run: npm run format:check
 
       - run: npm run lint -- --format json --output-file eslint_report.json
-        continue-on-error: true
 
-      - uses: ataylorme/eslint-annotate-action@5a8d8ab89a57679e90c32750e0f382e9d8570750 # 4.0.0
+      - if: ${{ !cancelled() && hashFiles('eslint_report.json') != '' }}
+        uses: ataylorme/eslint-annotate-action@5a8d8ab89a57679e90c32750e0f382e9d8570750 # 4.0.0
         with:
           markdown-report-on-step-summary: true
 
