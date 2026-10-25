@@ -11,6 +11,7 @@ permissions:
 jobs:
   generate:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - uses: Platane/snk/svg-only@v3.5.0
         with:

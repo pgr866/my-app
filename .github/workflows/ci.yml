@@ -15,8 +15,15 @@ concurrency:
 jobs:
   ci:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      checks: write
+      pull-requests: read
     steps:
       - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
 
       - uses: actions/setup-node@v7.1.0
         with:
@@ -27,7 +34,12 @@ jobs:
 
       - run: npm run format:check
 
-      - run: npm run lint
+      - run: npm run lint -- --format json --output-file eslint_report.json
+        continue-on-error: true
+
+      - uses: ataylorme/eslint-annotate-action@4.0.0
+        with:
+          markdown-report-on-step-summary: true
 
       - run: npm run types:check
 
