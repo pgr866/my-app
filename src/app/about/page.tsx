@@ -8,6 +8,7 @@ import { ScrollReveal } from '@/components/ScrollReveal';
 import { SpotlightGrid } from '@/components/SpotlightGrid';
 import { education, experience, skills, type Tech } from '@/data/about';
 import { gitConfig } from '@/lib/layout.shared';
+import { slugify } from '@/lib/slug';
 import avatar from '../../../assets/avatar.png';
 
 export const metadata: Metadata = {
@@ -30,9 +31,14 @@ const links = [
   { label: 'Email', href: 'mailto:pgr866@gmail.com', icon: Mail },
 ];
 
-function SectionTitle({ children }: { children: React.ReactNode }) {
+function SectionTitle({ children }: { children: string }) {
   return (
-    <h2 className="mb-6 text-2xl font-semibold tracking-tight">{children}</h2>
+    <h2
+      id={slugify(children)}
+      className="mb-6 scroll-mt-20 text-2xl font-semibold tracking-tight"
+    >
+      {children}
+    </h2>
   );
 }
 
@@ -121,9 +127,19 @@ export default function AboutPage() {
               <MapPin className="size-4" /> Almería, Spain
             </p>
             <p className="text-fd-muted-foreground">
-              DevOps &amp; Cloud Engineer focused on CI/CD pipeline automation,
-              infrastructure as code (IaC) and container orchestration. My
-              background in software engineering and full-stack development
+              DevOps &amp; Cloud Engineer focused on{' '}
+              <strong className="text-fd-foreground">
+                CI/CD pipeline automation
+              </strong>
+              ,{' '}
+              <strong className="text-fd-foreground">
+                infrastructure as code (IaC)
+              </strong>{' '}
+              and{' '}
+              <strong className="text-fd-foreground">
+                container orchestration
+              </strong>
+              . My background in software engineering and full-stack development
               gives me a comprehensive view of product requirements, allowing me
               to design architectures and deployments that streamline the
               development team&apos;s workflow.
@@ -232,7 +248,12 @@ export default function AboutPage() {
                 className="group relative flex flex-col gap-4 overflow-hidden rounded-xl border border-fd-border bg-fd-card p-6 transition-colors hover:border-fd-primary/50"
               >
                 <CardGlow />
-                <h3 className="relative text-lg font-semibold">{title}</h3>
+                <h3
+                  id={slugify(title)}
+                  className="relative scroll-mt-20 text-lg font-semibold"
+                >
+                  {title}
+                </h3>
                 {groups.map(({ label, items }) => (
                   <div key={label} className="relative flex flex-col gap-2">
                     <p className="text-xs font-medium tracking-wide text-fd-muted-foreground uppercase">

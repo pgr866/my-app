@@ -92,6 +92,12 @@ body {
   scrollbar-color: auto;
 }
 
+/* react-remove-scroll forces `position: relative` while a dialog is open,
+   which un-fixes the body and resets its scroll position */
+html body[data-scroll-locked] {
+  position: fixed !important;
+}
+
 body::-webkit-scrollbar-track {
   margin-top: 3.5rem;
 }
@@ -164,12 +170,6 @@ html::before {
       animation-timeline: scroll(nearest block);
       animation-range: 0 80px;
     }
-  }
-}
-
-@media (max-width: 767px) {
-  body:has([data-toc-popover]) #nd-nav::after {
-    top: calc(100% + 6rem);
   }
 }
 

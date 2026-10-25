@@ -1,6 +1,7 @@
 import { source } from '@/lib/source';
 import { DocsLayout } from 'fumadocs-ui/layouts/docs';
 import { baseOptions } from '@/lib/layout.shared';
+import { NotesHeader } from '@/components/SidebarTriggerSlot';
 
 export default function Layout({ children }: LayoutProps<'/notes'>) {
   return (
@@ -17,6 +18,7 @@ export default function Layout({ children }: LayoutProps<'/notes'>) {
       {...baseOptions()}
       themeSwitch={{ enabled: false }}
       nav={{ title: null }}
+      slots={{ header: NotesHeader }}
     >
       {children}
     </DocsLayout>

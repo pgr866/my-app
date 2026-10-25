@@ -29,6 +29,7 @@ import {
   SiReact,
   SiRedis,
   SiSpringboot,
+  SiSupabase,
   SiTailwindcss,
   SiTerraform,
   SiTrivy,
@@ -41,6 +42,16 @@ const SoccerLogo = assetIcon('msc-soccer-project.png');
 const StratifyLogo = assetIcon('stratify.svg');
 
 export type ProjectStatus = 'live' | 'in-progress' | 'completed';
+
+export const projectsText = {
+  intro:
+    'A selection of projects where I put cloud automation, infrastructure as code and scalable architectures into practice.',
+  status: {
+    live: 'Live',
+    'in-progress': 'In progress',
+    completed: 'Completed',
+  } satisfies Record<ProjectStatus, string>,
+};
 
 export type Project = {
   title: string;
@@ -108,6 +119,7 @@ export const projects: Project[] = [
       { name: 'Spring Boot', icon: SiSpringboot },
       { name: 'MongoDB', icon: SiMongodb },
       { name: 'PostgreSQL', icon: SiPostgresql },
+      { name: 'Supabase', icon: SiSupabase },
       { name: 'Firebase', icon: SiFirebase },
       { name: 'Docker', icon: SiDocker },
       { name: 'GitHub Actions', icon: SiGithubactions },
