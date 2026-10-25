@@ -10,7 +10,6 @@ import { cn } from '@/lib/cn';
 
 const SLOT_ID = 'sidebar-trigger-slot';
 
-// Search button of the site header, with a mount point for the sidebar button
 export function HeaderSearchTrigger(
   props: ComponentProps<typeof SearchTrigger>,
 ) {
@@ -22,7 +21,6 @@ export function HeaderSearchTrigger(
   );
 }
 
-// Replaces the docs mobile header: its sidebar button moves to the site header
 export function NotesHeader() {
   const { slots } = useDocsLayout();
   const target = useSyncExternalStore(

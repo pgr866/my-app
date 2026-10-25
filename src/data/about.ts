@@ -50,7 +50,6 @@ export type Tech = {
   icon?: ComponentType<{ className?: string }>;
 };
 
-// Plain-text copy of the prose in the About page, used by the search index.
 export const aboutText = {
   greeting: "Hi there, I'm",
   name: 'Pablo Gómez Rivas',

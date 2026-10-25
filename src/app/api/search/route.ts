@@ -41,7 +41,6 @@ const tags = (html: string, tag: string) =>
 const alts = (html: string) =>
   [...html.matchAll(/<img\b[^>]*\balt="([^"]+)"/g)].map((m) => m[1]);
 
-// The README tables are raw HTML, which `structure` skips, so read them here
 function readmeTables(markdown: string): StructuredData {
   const headings: StructuredData['headings'] = [];
   const contents: StructuredData['contents'] = [];

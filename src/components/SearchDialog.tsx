@@ -38,6 +38,15 @@ export default function CustomSearchDialog(props: SharedProps) {
     },
   });
 
+  const [wasOpen, setWasOpen] = useState(props.open);
+  if (props.open !== wasOpen) {
+    setWasOpen(props.open);
+    if (props.open) {
+      setTerm('');
+      setSearch('');
+    }
+  }
+
   return (
     <SearchDialog
       search={search}

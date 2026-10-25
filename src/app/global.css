@@ -92,8 +92,6 @@ body {
   scrollbar-color: auto;
 }
 
-/* react-remove-scroll forces `position: relative` while a dialog is open,
-   which un-fixes the body and resets its scroll position */
 html body[data-scroll-locked] {
   position: fixed !important;
 }
