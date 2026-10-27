@@ -38,7 +38,7 @@ export default async function HomePage() {
   return (
     <DocsBody
       data-reveal-root
-      className="mx-auto w-full max-w-[836px] px-4 pt-14 pb-10 [&_img]:my-0 [&_img]:inline [&_:is(h2,h3)_img]:align-middle [&_:is(h2,h3)_img]:me-2 [&_.projects_td]:px-6! [&_.projects_td_p:last-child_img]:my-1"
+      className="mx-auto w-full max-w-[836px] px-4 pt-14 pb-10 [&_img]:my-0 [&_img]:inline [&_:is(h2,h3)_img]:align-middle [&_:is(h2,h3)_img]:me-2 [&_.projects_td]:px-6! [&_.projects_td_p:last-child_img]:my-1 [&_td>img]:my-1"
     >
       <Markdown
         remarkPlugins={[remarkGfm, remarkHeading]}
