@@ -2,6 +2,7 @@ import type { ComponentType } from 'react';
 import type { IconType } from 'react-icons';
 import { assetIcon } from '@/components/AssetIcon';
 import { SiteLogo } from '@/components/SiteLogo';
+import { siteUrl } from '@/lib/layout.shared';
 import {
   SiAngular,
   SiArgo,
@@ -176,7 +177,7 @@ export const projects: Project[] = [
       { name: 'Git', icon: SiGit },
     ],
     repo: 'https://github.com/pgr866/my-app',
-    demo: 'https://pgr866.github.io/my-app',
+    demo: siteUrl,
     wide: true,
   },
 ];

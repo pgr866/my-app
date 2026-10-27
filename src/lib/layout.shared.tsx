@@ -11,6 +11,14 @@ export const gitConfig = {
   branch: 'main',
 };
 
+export const siteUrl = (
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  `https://${gitConfig.user}.github.io/${gitConfig.repo}`
+).replace(/\/+$/, '');
+export const siteTitle = `${appName} | DevOps & Cloud Engineer`;
+export const siteDescription =
+  'Portfolio of Pablo Gómez Rivas, DevOps & Cloud Engineer specializing in CI/CD automation, infrastructure as code and container orchestration, with projects and technical notes on Docker, Git and Kubernetes.';
+
 export function baseOptions(): BaseLayoutProps {
   return {
     nav: {

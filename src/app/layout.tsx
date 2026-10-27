@@ -1,7 +1,15 @@
 import type { Metadata } from 'next';
 import { RootProvider } from 'fumadocs-ui/provider/next';
 import { HomeLayout } from 'fumadocs-ui/layouts/home';
-import { appName, baseOptions, notesName } from '@/lib/layout.shared';
+import {
+  appName,
+  baseOptions,
+  gitConfig,
+  notesName,
+  siteDescription,
+  siteTitle,
+  siteUrl,
+} from '@/lib/layout.shared';
 import './global.css';
 import { Geist } from 'next/font/google';
 import CustomSearchDialog from '@/components/SearchDialog';
@@ -14,7 +22,85 @@ const geist = Geist({
 });
 
 export const metadata: Metadata = {
-  title: { default: appName, template: `%s | ${appName}` },
+  metadataBase: new URL(`${siteUrl}/`),
+  title: { default: siteTitle, template: `%s | ${appName}` },
+  description: siteDescription,
+  applicationName: appName,
+  authors: [{ name: appName, url: siteUrl }],
+  creator: appName,
+  keywords: [
+    'DevOps',
+    'Cloud Engineer',
+    'Kubernetes',
+    'Docker',
+    'CI/CD',
+    'Infrastructure as Code',
+    'Terraform',
+    'GitHub Actions',
+    'Next.js',
+    'Portfolio',
+  ],
+  alternates: { canonical: './' },
+  robots: { index: true, follow: true },
+  openGraph: {
+    type: 'website',
+    siteName: appName,
+    locale: 'en_US',
+    images: [
+      {
+        url: 'og.png',
+        width: 1200,
+        height: 630,
+        alt: `${appName}, DevOps & Cloud Engineer`,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    creator: '@pgr866',
+    images: ['og.png'],
+  },
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': `${siteUrl}/#website`,
+      url: `${siteUrl}/`,
+      name: appName,
+      description: siteDescription,
+      inLanguage: 'en',
+      publisher: { '@id': `${siteUrl}/#person` },
+    },
+    {
+      '@type': 'Person',
+      '@id': `${siteUrl}/#person`,
+      name: appName,
+      jobTitle: 'DevOps & Cloud Engineer',
+      url: `${siteUrl}/`,
+      image: `${siteUrl}/og.png`,
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Almería',
+        addressCountry: 'ES',
+      },
+      sameAs: [
+        `https://github.com/${gitConfig.user}`,
+        'https://www.linkedin.com/in/pablo-gomez-rivas/',
+        'https://x.com/pgr866',
+      ],
+      knowsAbout: [
+        'DevOps',
+        'Kubernetes',
+        'Docker',
+        'CI/CD',
+        'Infrastructure as Code',
+        'Cloud computing',
+      ],
+    },
+  ],
 };
 
 export default function Layout({ children }: LayoutProps<'/'>) {
@@ -23,6 +109,12 @@ export default function Layout({ children }: LayoutProps<'/'>) {
   return (
     <html lang="en" className={geist.className} suppressHydrationWarning>
       <body className="flex flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c'),
+          }}
+        />
         <RootProvider search={{ SearchDialog: CustomSearchDialog }}>
           <ScrollToTop />
           <HomeLayout

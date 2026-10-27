@@ -12,7 +12,11 @@ import {
   type ProjectStatus,
 } from '@/data/projects';
 
-export const metadata: Metadata = { title: 'Projects' };
+export const metadata: Metadata = {
+  title: 'Projects',
+  description:
+    'Selected projects by Pablo Gómez Rivas: Kubernetes security and resilience research, a full stack trading platform on Azure, and CI/CD-driven deployments.',
+};
 
 const statusStyles: Record<ProjectStatus, { label: string; dot: string }> = {
   live: { label: projectsText.status.live, dot: 'bg-emerald-500' },
