@@ -70,6 +70,9 @@ export async function generateMetadata(
 
   return {
     title: [page.data.title, folders.at(-1) ?? notesName].join(' | '),
+    ...(page.data.description !== 'Coming soon' && {
+      description: page.data.description,
+    }),
   };
 }
 

@@ -76,6 +76,19 @@ export const aboutText = {
   ],
 };
 
+export const cvs = [
+  {
+    label: 'English',
+    lang: 'en',
+    href: '/cv/Pablo-Gomez-Rivas-CV-EN.pdf',
+  },
+  {
+    label: 'Spanish',
+    lang: 'es',
+    href: '/cv/Pablo-Gomez-Rivas-CV-ES.pdf',
+  },
+];
+
 export const experience = [
   {
     role: 'Full Stack Engineer',

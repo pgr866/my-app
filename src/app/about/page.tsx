@@ -2,11 +2,12 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Languages, MapPin } from 'lucide-react';
-import { FaGithub, FaLinkedin } from 'react-icons/fa6';
+import { FaGithub, FaLinkedin, FaXTwitter } from 'react-icons/fa6';
 import { Mail } from 'lucide-react';
+import { CvMenu } from '@/components/CvMenu';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { SpotlightGrid } from '@/components/SpotlightGrid';
-import { education, experience, skills, type Tech } from '@/data/about';
+import { cvs, education, experience, skills, type Tech } from '@/data/about';
 import { gitConfig } from '@/lib/layout.shared';
 import { slugify } from '@/lib/slug';
 import avatar from '../../../assets/avatar.png';
@@ -28,6 +29,7 @@ const links = [
     href: `https://github.com/${gitConfig.user}`,
     icon: FaGithub,
   },
+  { label: 'X', href: 'https://x.com/pgr866', icon: FaXTwitter },
   { label: 'Email', href: 'mailto:pgr866@gmail.com', icon: Mail },
 ];
 
@@ -113,7 +115,7 @@ export default function AboutPage() {
             aria-hidden
             className="pointer-events-none absolute -top-16 -right-16 size-72 rounded-full bg-fd-primary/15 blur-3xl"
           />
-          <div className="relative flex max-w-md flex-col gap-4">
+          <div className="relative flex max-w-lg flex-col gap-4">
             <p className="text-sm font-medium text-fd-muted-foreground">
               Hi there, I&apos;m
             </p>
@@ -157,6 +159,9 @@ export default function AboutPage() {
                   </a>
                 </li>
               ))}
+              <li>
+                <CvMenu cvs={cvs} />
+              </li>
             </ul>
           </div>
           <div className="relative shrink-0">
