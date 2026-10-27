@@ -90,23 +90,22 @@ function ProjectCard({ project }: { project: Project }) {
         }}
       />
 
-      <header className="relative flex items-start justify-between gap-4">
-        <div className="flex items-center gap-5">
-          <Icon className="h-7 w-auto shrink-0 text-fd-foreground" />
-          <div>
-            {kicker && (
-              <p className="text-xs font-medium tracking-wide text-fd-muted-foreground uppercase">
-                {kicker}
-              </p>
-            )}
-            <h2
-              className={cn('font-semibold', featured ? 'text-2xl' : 'text-lg')}
-            >
-              {title}
-            </h2>
+      <header className="relative grid grid-cols-[max-content_1fr] items-center gap-x-5">
+        <Icon className="row-span-2 h-7 w-auto max-w-none text-fd-foreground" />
+        <div className="flex items-start justify-between gap-4">
+          {kicker && (
+            <p className="text-xs font-medium tracking-wide text-fd-muted-foreground uppercase">
+              {kicker}
+            </p>
+          )}
+          {/* Same height as the kicker line so the taller badge doesn't push the title down. */}
+          <div className="ms-auto flex h-4 -translate-y-1 items-start">
+            <StatusBadge status={status} />
           </div>
         </div>
-        <StatusBadge status={status} />
+        <h2 className={cn('font-semibold', featured ? 'text-2xl' : 'text-lg')}>
+          {title}
+        </h2>
       </header>
 
       <p className="relative text-fd-muted-foreground">{description}</p>
