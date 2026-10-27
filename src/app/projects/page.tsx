@@ -92,7 +92,7 @@ function ProjectCard({ project }: { project: Project }) {
 
       <header className="relative grid grid-cols-[max-content_1fr] items-center gap-x-5">
         <Icon className="row-span-2 h-7 w-auto max-w-none text-fd-foreground" />
-        <div className="flex items-start justify-between gap-4">
+        <div className="flex items-start justify-between gap-4 mb-1">
           {kicker && (
             <p className="text-xs font-medium tracking-wide text-fd-muted-foreground uppercase">
               {kicker}
