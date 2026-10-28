@@ -1,6 +1,8 @@
 import type { ComponentType } from 'react';
 import {
   SiAngular,
+  SiArgo,
+  SiCilium,
   SiDjango,
   SiDocker,
   SiGit,
@@ -12,32 +14,38 @@ import {
   SiJavascript,
   SiJenkins,
   SiJira,
+  SiK6,
   SiKubernetes,
   SiLinux,
   SiMongodb,
   SiNextdotjs,
+  SiNginx,
+  SiNodedotjs,
   SiOpenstack,
+  SiPayloadcms,
   SiPostgresql,
   SiPrometheus,
   SiPython,
   SiReact,
+  SiRedis,
   SiSpringboot,
   SiSupabase,
   SiTailwindcss,
   SiTerraform,
+  SiTrivy,
   SiTypescript,
 } from 'react-icons/si';
 import { FaJava } from 'react-icons/fa';
-import { VscAzure } from 'react-icons/vsc';
+import { VscAzure, VscAzureDevops } from 'react-icons/vsc';
 import {
   ArrowLeftRight,
   Binary,
   Blocks,
   Boxes,
+  Container,
   Database,
   FileText,
   FlaskConical,
-  GitPullRequestArrow,
   Kanban,
   ListTree,
   Network,
@@ -69,10 +77,7 @@ export const aboutText = {
   ],
   languages: [
     { name: 'Spanish', detail: 'Native' },
-    {
-      name: 'English',
-      detail: 'Advanced · Cambridge English: First (FCE) | B2 · Sep 2019',
-    },
+    { name: 'English', detail: 'Fluent · Cambridge B2 First (FCE)' },
   ],
 };
 
@@ -91,16 +96,29 @@ export const cvs = [
   },
 ];
 
-export const experience = [
+export const experience: {
+  role: string;
+  org: string;
+  type: string;
+  period: string;
+  points: string[];
+  stack: Tech[];
+}[] = [
   {
     role: 'Full Stack Engineer',
     org: 'DEVyond',
     type: 'Internship · Remote',
     period: 'Sep 2026 – Nov 2026',
     points: [
-      'Building web interfaces and components with Next.js and TypeScript.',
-      'Integrating backend and databases with Supabase and Payload CMS.',
-      'Working in a team under agile methodologies.',
+      'Develop web interfaces and components with Next.js and TypeScript.',
+      'Integrate backend services and databases with Supabase and Payload CMS.',
+      'Work in a remote team under agile methodologies.',
+    ],
+    stack: [
+      { name: 'Next.js', icon: SiNextdotjs },
+      { name: 'TypeScript', icon: SiTypescript },
+      { name: 'Supabase', icon: SiSupabase },
+      { name: 'Payload CMS', icon: SiPayloadcms },
     ],
   },
   {
@@ -111,7 +129,13 @@ export const experience = [
     points: [
       'Built web interfaces and components with AngularJS and TypeScript.',
       'Managed tasks and workflows in Azure DevOps and Jira.',
-      'Took part in the whole software lifecycle under agile methodologies.',
+      'Took part in the full software development lifecycle using agile methodologies.',
+    ],
+    stack: [
+      { name: 'AngularJS', icon: SiAngular },
+      { name: 'TypeScript', icon: SiTypescript },
+      { name: 'Azure DevOps', icon: VscAzureDevops },
+      { name: 'Jira', icon: SiJira },
     ],
   },
 ];
@@ -120,14 +144,20 @@ export const education = [
   {
     title: 'MSc in Computer Engineering',
     org: 'University of Almería',
-    detail: 'Specialization: Web/Mobile Development',
+    detail: 'Specialization in Web/Mobile Development',
     period: 'Sep 2025 – Feb 2027',
+    points: [
+      "Master's thesis (in progress): Resilience & Security in Microservices Orchestration, comparing a baseline and a hardened Kubernetes deployment to measure what security costs and what it buys.",
+    ],
   },
   {
     title: 'BSc in Computer Engineering',
     org: 'University of Almería',
-    detail: 'Specialization: Software Engineering · Grade 8.02 / 10',
+    detail: 'Specialization in Software Engineering · GPA: 8.02/10',
     period: 'Sep 2021 – Jun 2025',
+    points: [
+      "Bachelor's thesis: Stratify, a full stack platform to design, simulate and run algorithmic trading strategies on crypto markets, deployed on Azure.",
+    ],
   },
 ];
 
@@ -142,31 +172,35 @@ export const skills: {
         label: 'Containers & orchestration',
         items: [
           { name: 'Docker', icon: SiDocker },
+          { name: 'Docker Compose', icon: Container },
           { name: 'Kubernetes', icon: SiKubernetes },
+          { name: 'Cilium', icon: SiCilium },
         ],
       },
       {
-        label: 'IaC & CI/CD',
+        label: 'CI/CD, GitOps & IaC',
         items: [
-          { name: 'Terraform', icon: SiTerraform },
           { name: 'GitHub Actions', icon: SiGithubactions },
           { name: 'Jenkins', icon: SiJenkins },
-          { name: 'GitOps', icon: GitPullRequestArrow },
+          { name: 'Argo CD', icon: SiArgo },
+          { name: 'Terraform', icon: SiTerraform },
         ],
       },
       {
         label: 'Cloud platforms',
         items: [
           { name: 'Microsoft Azure', icon: VscAzure },
-          { name: 'GCP', icon: SiGooglecloud },
+          { name: 'Google Cloud', icon: SiGooglecloud },
           { name: 'OpenStack', icon: SiOpenstack },
         ],
       },
       {
-        label: 'Observability',
+        label: 'Observability, testing & security',
         items: [
           { name: 'Prometheus', icon: SiPrometheus },
           { name: 'Grafana', icon: SiGrafana },
+          { name: 'k6', icon: SiK6 },
+          { name: 'Trivy', icon: SiTrivy },
         ],
       },
     ],
@@ -175,7 +209,7 @@ export const skills: {
     title: 'Development',
     groups: [
       {
-        label: 'Languages',
+        label: 'Programming languages',
         items: [
           { name: 'Python', icon: SiPython },
           { name: 'TypeScript', icon: SiTypescript },
@@ -191,13 +225,12 @@ export const skills: {
           { name: 'React', icon: SiReact },
           { name: 'Next.js', icon: SiNextdotjs },
           { name: 'Tailwind CSS', icon: SiTailwindcss },
-          { name: 'AngularJS', icon: SiAngular },
+          { name: 'Angular', icon: SiAngular },
+          { name: 'Node.js', icon: SiNodedotjs },
           { name: 'Django', icon: SiDjango },
           { name: 'Spring Boot', icon: SiSpringboot },
           { name: 'REST APIs', icon: ArrowLeftRight },
           { name: 'Microservices', icon: Boxes },
-          { name: 'Design patterns', icon: Shapes },
-          { name: 'Testing', icon: FlaskConical },
         ],
       },
       {
@@ -205,6 +238,7 @@ export const skills: {
         items: [
           { name: 'PostgreSQL', icon: SiPostgresql },
           { name: 'MongoDB', icon: SiMongodb },
+          { name: 'Redis', icon: SiRedis },
           { name: 'Supabase', icon: SiSupabase },
         ],
       },
@@ -218,7 +252,7 @@ export const skills: {
         items: [
           { name: 'Git', icon: SiGit },
           { name: 'GitHub', icon: SiGithub },
-          { name: 'Azure DevOps', icon: VscAzure },
+          { name: 'Azure DevOps', icon: VscAzureDevops },
           { name: 'Jira', icon: SiJira },
         ],
       },
@@ -240,6 +274,8 @@ export const skills: {
           { name: 'Data structures', icon: ListTree },
           { name: 'Algorithms', icon: Binary },
           { name: 'Object-oriented programming', icon: Blocks },
+          { name: 'Design patterns', icon: Shapes },
+          { name: 'Testing', icon: FlaskConical },
           { name: 'Technical documentation', icon: FileText },
         ],
       },
@@ -247,6 +283,7 @@ export const skills: {
         label: 'Systems & networks',
         items: [
           { name: 'Linux', icon: SiLinux },
+          { name: 'Nginx', icon: SiNginx },
           { name: 'Computer networks', icon: Network },
         ],
       },

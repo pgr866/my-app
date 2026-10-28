@@ -1,7 +1,13 @@
 import { readFileSync } from 'node:fs';
 import { source } from '@/lib/source';
 import { slugify } from '@/lib/slug';
-import { aboutText, education, experience, skills } from '@/data/about';
+import {
+  aboutText,
+  education,
+  experience,
+  skills,
+  type Tech,
+} from '@/data/about';
 import { projects, projectsText } from '@/data/projects';
 import { createSearchAPI } from 'fumadocs-core/search/server';
 import { structure, type StructuredData } from 'fumadocs-core/mdx-plugins';
@@ -127,7 +133,7 @@ const aboutData = pageData([
         role: e.title,
         sub: e.org,
         meta: e.detail,
-        points: [] as string[],
+        stack: [] as Tech[],
       })),
     },
   ].map(({ title, items }) => ({
@@ -137,6 +143,7 @@ const aboutData = pageData([
       e.meta,
       e.period,
       ...e.points,
+      e.stack.map((t) => t.name).join(', '),
     ]),
   })),
   ...skills.map(({ title, groups }) => ({

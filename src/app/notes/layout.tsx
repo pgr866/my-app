@@ -11,8 +11,7 @@ export default function Layout({ children }: LayoutProps<'/notes'>) {
         className:
           '[--fd-layout-width:100vw] min-h-[calc(var(--fd-docs-height)-var(--fd-banner-height))]',
         style: {
-          '--fd-docs-row-3':
-            'calc(var(--fd-docs-row-2) + var(--fd-toc-popover-height) + 0.75rem)',
+          '--fd-docs-row-3': 'calc(var(--fd-docs-row-2) + 0.75rem)',
         } as React.CSSProperties,
       }}
       {...baseOptions()}

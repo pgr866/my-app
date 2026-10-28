@@ -129,12 +129,9 @@ html::before {
   );
 }
 
-#nd-nav::after {
+#nd-nav::after,
+[data-toc-popover]::after {
   content: '';
-  position: absolute;
-  inset-inline: 0;
-  top: 100%;
-  z-index: -1;
   height: 5rem;
   pointer-events: none;
   background: linear-gradient(
@@ -148,26 +145,20 @@ html::before {
   -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent);
 }
 
-@keyframes nav-shadow-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+#nd-nav::after {
+  position: absolute;
+  inset-inline: 0;
+  top: 100%;
+  z-index: -1;
+}
+
+[data-toc-popover]::after {
+  display: block;
 }
 
 @media (max-width: 1279px) {
   body:has([data-toc-popover]) #nd-nav::after {
-    top: calc(100% + 2.5rem);
-  }
-
-  @supports (animation-timeline: scroll()) {
-    body:has([data-toc-popover]) #nd-nav::after {
-      animation: nav-shadow-in linear both;
-      animation-timeline: scroll(nearest block);
-      animation-range: 0 80px;
-    }
+    content: none;
   }
 }
 

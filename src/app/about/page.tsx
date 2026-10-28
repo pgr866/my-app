@@ -62,11 +62,12 @@ function Timeline({
     meta?: string;
     period: string;
     points?: string[];
+    stack?: Tech[];
   }[];
 }) {
   return (
     <ol className="relative flex flex-col gap-8 border-s border-fd-border ps-6">
-      {items.map(({ title, sub, meta, period, points }) => (
+      {items.map(({ title, sub, meta, period, points, stack }) => (
         <li key={`${title}-${period}`} className="relative">
           <span
             aria-hidden
@@ -84,6 +85,13 @@ function Timeline({
             <ul className="mt-3 flex list-disc flex-col gap-1.5 ps-5 text-sm marker:text-fd-primary/60">
               {points.map((point) => (
                 <li key={point}>{point}</li>
+              ))}
+            </ul>
+          )}
+          {stack && (
+            <ul className="mt-3 flex flex-wrap gap-2">
+              {stack.map((tech) => (
+                <Chip key={tech.name} {...tech} />
               ))}
             </ul>
           )}
@@ -228,6 +236,7 @@ export default function AboutPage() {
               meta: e.type,
               period: e.period,
               points: e.points,
+              stack: e.stack,
             }))}
           />
         </section>
@@ -240,6 +249,7 @@ export default function AboutPage() {
               sub: e.org,
               meta: e.detail,
               period: e.period,
+              points: e.points,
             }))}
           />
         </section>
@@ -293,9 +303,8 @@ export default function AboutPage() {
               <div className="relative">
                 <h3 className="font-semibold">English</h3>
                 <p className="text-sm text-fd-muted-foreground">
-                  Advanced · Cambridge English: First (FCE) | B2
+                  Fluent · Cambridge B2 First (FCE)
                 </p>
-                <p className="text-sm text-fd-muted-foreground">Sep 2019</p>
               </div>
             </article>
           </SpotlightGrid>

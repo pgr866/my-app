@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Pablo Gómez Rivas · CV · Ingeniero DevOps y Cloud</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@500&display=swap"
+    />
+    <style>
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      :root {
+        /* Azul marino de acento; el fondo de las etiquetas y las líneas se derivan de él */
+        --accent: #1f3864;
+        --accent-soft: color-mix(in oklab, var(--accent) 8%, white);
+        --ink: #111827;
+        --text: #374151;
+        --muted: #6b7280;
+        --rule: color-mix(in oklab, var(--accent) 18%, white);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      body {
+        background: #fff;
+        color: var(--text);
+        font:
+          400 8.5pt/1.38 'Geist',
+          sans-serif;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      ul {
+        list-style: none;
+      }
+
+      .page {
+        position: relative;
+        width: 210mm;
+        height: 297mm;
+        padding: 11mm 13.5mm 10mm;
+        overflow: hidden;
+      }
+      .page::before {
+        content: '';
+        position: absolute;
+        inset: 0 0 auto 0;
+        height: 2mm;
+        background: var(--accent);
+      }
+
+      /* Cabecera */
+      .hd {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 8mm;
+      }
+      .hd h1 {
+        font-size: 22.5pt;
+        font-weight: 600;
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+        color: var(--ink);
+      }
+      .role {
+        margin-top: 1.2mm;
+        font-size: 11pt;
+        font-weight: 500;
+        color: var(--accent);
+      }
+      .loc {
+        margin-top: 1.4mm;
+        display: flex;
+        align-items: center;
+        gap: 1.4mm;
+        color: var(--muted);
+      }
+      .contact {
+        display: grid;
+        gap: 0.6mm;
+        font-size: 8.2pt;
+        color: var(--ink);
+      }
+      .contact li {
+        display: flex;
+        align-items: center;
+        gap: 1.8mm;
+      }
+      .i {
+        width: 3mm;
+        height: 3mm;
+        flex: none;
+        fill: none;
+        stroke: var(--accent);
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      /* Secciones */
+      h2 {
+        display: flex;
+        align-items: center;
+        gap: 2.5mm;
+        margin: 5.4mm 0 1.7mm;
+        font-size: 8.4pt;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+      h2::after {
+        content: '';
+        flex: 1;
+        height: 0.75pt;
+        background: var(--rule);
+      }
+      .hd + section > h2 {
+        margin-top: 3.8mm;
+      }
+
+      .skills {
+        display: grid;
+        grid-template-columns: 31mm 1fr;
+        gap: 0.5mm 3mm;
+      }
+      .skills dt {
+        font-weight: 600;
+        color: var(--ink);
+      }
+
+      .entry + .entry {
+        margin-top: 2.6mm;
+      }
+      .eh {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 4mm;
+      }
+      h3 {
+        font-size: 9.2pt;
+        font-weight: 600;
+        color: var(--ink);
+      }
+      h3 .at {
+        font-weight: 500;
+        color: var(--accent);
+      }
+      h3 .kind {
+        font-size: 8.2pt;
+        font-weight: 400;
+        color: var(--muted);
+      }
+      .ext {
+        width: 2.4mm;
+        height: 2.4mm;
+        margin-left: 0.8mm;
+        vertical-align: -0.1mm;
+        stroke: var(--muted);
+      }
+      .meta {
+        flex: none;
+        font-size: 8pt;
+        color: var(--muted);
+        font-variant-numeric: tabular-nums;
+      }
+      .sub {
+        color: var(--muted);
+      }
+      .pts {
+        margin-top: 0.6mm;
+      }
+      /* Viñeta en el flujo (sin position) para que el texto extraído conserve el orden de lectura */
+      .pts li {
+        display: flex;
+      }
+      .pts li + li {
+        margin-top: 0.3mm;
+      }
+      .pts li::before {
+        content: '•';
+        flex: none;
+        width: 3.4mm;
+        padding-left: 0.4mm;
+        color: var(--accent);
+      }
+      .stack {
+        margin-top: 1mm;
+        line-height: 1;
+      }
+      .stack span {
+        display: inline-block;
+        margin: 0 0.4mm 0.6mm 0;
+        padding: 0.35mm 1.3mm;
+        border-radius: 0.8mm;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font:
+          500 6.6pt/1.3 'Geist Mono',
+          monospace;
+      }
+
+      .cols {
+        display: grid;
+        grid-template-columns: 1fr 48mm;
+        gap: 8mm;
+      }
+      .langs li + li {
+        margin-top: 1mm;
+      }
+      .langs b {
+        font-weight: 600;
+        color: var(--ink);
+      }
+    </style>
+  </head>
+  <body>
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <symbol id="i-pin" viewBox="0 0 24 24">
+        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+        <circle cx="12" cy="10" r="3" />
+      </symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24">
+        <rect width="20" height="16" x="2" y="4" rx="2" />
+        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+      </symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24">
+        <path
+          d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+        />
+      </symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24">
+        <path
+          d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+        />
+        <rect width="4" height="12" x="2" y="9" />
+        <circle cx="4" cy="4" r="2" />
+      </symbol>
+      <symbol id="i-github" viewBox="0 0 24 24">
+        <path
+          d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
+        />
+        <path d="M9 18c-4.51 2-5-2-7-2" />
+      </symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10" />
+        <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+        <path d="M2 12h20" />
+      </symbol>
+      <symbol id="i-ext" viewBox="0 0 24 24">
+        <path d="M7 7h10v10" />
+        <path d="M7 17 17 7" />
+      </symbol>
+    </svg>
+
+    <main class="page">
+      <header class="hd">
+        <div>
+          <h1>Pablo Gómez Rivas</h1>
+          <p class="role">Ingeniero DevOps y Cloud</p>
+          <p class="loc">
+            <svg class="i"><use href="#i-pin" /></svg>Almería, España
+          </p>
+        </div>
+        <ul class="contact">
+          <li>
+            <svg class="i"><use href="#i-mail" /></svg
+            ><a href="mailto:pgr866@gmail.com">pgr866@gmail.com</a>
+          </li>
+          <li>
+            <svg class="i"><use href="#i-phone" /></svg
+            ><a href="tel:+34608261019">+34 608 26 10 19</a>
+          </li>
+          <li>
+            <svg class="i"><use href="#i-linkedin" /></svg
+            ><a href="https://www.linkedin.com/in/pablo-gomez-rivas/"
+              >in/pablo-gomez-rivas</a
+            >
+          </li>
+          <li>
+            <svg class="i"><use href="#i-github" /></svg
+            ><a href="https://github.com/pgr866">pgr866</a>
+          </li>
+          <li>
+            <svg class="i"><use href="#i-globe" /></svg
+            ><a href="https://pgr866.github.io/my-app"
+              >pgr866.github.io/my-app</a
+            >
+          </li>
+        </ul>
+      </header>
+
+      <section>
+        <h2>Perfil</h2>
+        <p>
+          Ingeniero DevOps y Cloud especializado en la automatización de
+          pipelines CI/CD, la infraestructura como código (IaC) y la
+          orquestación de contenedores. Mi base en ingeniería de software y
+          desarrollo full stack me aporta una visión global de las necesidades
+          del producto, permitiéndome diseñar arquitecturas y despliegues que
+          faciliten el trabajo del equipo de desarrollo.
+        </p>
+      </section>
+
+      <section>
+        <h2>Aptitudes técnicas</h2>
+        <dl class="skills">
+          <dt>Contenedores</dt>
+          <dd>Docker, Docker Compose, Kubernetes, Cilium</dd>
+          <dt>CI/CD e IaC</dt>
+          <dd>GitHub Actions, Jenkins, Argo CD (GitOps), Terraform</dd>
+          <dt>Cloud</dt>
+          <dd>
+            Microsoft Azure (AKS, VM), Google Cloud (Cloud Run), OpenStack
+          </dd>
+          <dt>Observabilidad</dt>
+          <dd>
+            Prometheus, Grafana · pruebas de carga con k6 · escaneo de imágenes
+            con Trivy
+          </dd>
+          <dt>Sistemas</dt>
+          <dd>Linux, Bash, Nginx, redes de computadores</dd>
+          <dt>Lenguajes</dt>
+          <dd>Python, TypeScript, JavaScript, Java, SQL</dd>
+          <dt>Desarrollo</dt>
+          <dd>
+            React, Next.js, Angular, Node.js, Django, Spring Boot, APIs REST,
+            microservicios
+          </dd>
+          <dt>Bases de datos</dt>
+          <dd>PostgreSQL, MongoDB, Redis, Supabase</dd>
+          <dt>Gestión</dt>
+          <dd>Git, GitHub, Azure DevOps, Jira, Scrum, Kanban</dd>
+        </dl>
+      </section>
+
+      <section>
+        <h2>Proyectos</h2>
+
+        <article class="entry">
+          <div class="eh">
+            <h3>
+              <a href="https://github.com/pgr866/microservices-demo"
+                >Resiliencia y seguridad en la orquestación de
+                microservicios<svg class="i ext"><use href="#i-ext" /></svg
+              ></a>
+            </h3>
+            <span class="meta">TFM · en curso</span>
+          </div>
+          <ul class="pts">
+            <li>
+              Online Boutique (10 microservicios) en Kubernetes en versión
+              estándar y con hardening: qué cuesta y qué aporta la seguridad.
+            </li>
+            <li>
+              Pruebas de carga e inyección de fallos con k6; consumo y latencia
+              frente a tiempo de recuperación (MTTR) en Grafana.
+            </li>
+            <li>
+              Hardening: límites de recursos y network policies (Cilium);
+              servicios con tests, linting e imágenes non-root (Trivy).
+            </li>
+            <li>
+              En desarrollo: entrega en AKS con Terraform, pipelines de GitHub
+              Actions y GitOps con Argo CD.
+            </li>
+          </ul>
+          <p class="stack">
+            <span>Kubernetes</span> <span>Terraform</span>
+            <span>Azure AKS</span> <span>Argo CD</span>
+            <span>GitHub Actions</span> <span>Docker</span> <span>Cilium</span>
+            <span>Prometheus</span> <span>Grafana</span> <span>k6</span>
+            <span>Trivy</span>
+          </p>
+        </article>
+
+        <article class="entry">
+          <div class="eh">
+            <h3>
+              <a href="https://github.com/pgr866/msc-soccer-project"
+                >msc-soccer-project<svg class="i ext"><use href="#i-ext" /></svg
+              ></a>
+            </h3>
+            <span class="meta">Proyecto del máster · completado</span>
+          </div>
+          <ul class="pts">
+            <li>
+              App Ionic/Angular con dos backends intercambiables: Node + MongoDB
+              y microservicios Spring Boot (Eureka, Gateway).
+            </li>
+            <li>
+              Tests unitarios y E2E con Cypress, Docker Compose en local y CI/CD
+              con GitHub Actions hasta Google Cloud Run.
+            </li>
+          </ul>
+          <p class="stack">
+            <span>Angular</span> <span>Ionic</span> <span>Node.js</span>
+            <span>Spring Boot</span> <span>MongoDB</span> <span>Firebase</span>
+            <span>Cypress</span> <span>Docker</span> <span>GitHub Actions</span>
+            <span>Cloud Run</span>
+          </p>
+        </article>
+
+        <article class="entry">
+          <div class="eh">
+            <h3>
+              <a href="https://github.com/pgr866/Stratify"
+                >Stratify<svg class="i ext"><use href="#i-ext" /></svg
+              ></a>
+            </h3>
+            <span class="meta">TFG · completado</span>
+          </div>
+          <ul class="pts">
+            <li>
+              Plataforma para diseñar, simular y ejecutar estrategias de trading
+              algorítmico en cripto, con operativa real vía CCXT.
+            </li>
+            <li>
+              Dockerizada y desplegada en una VM de Azure tras Nginx con TLS;
+              JWT en cookies HTTP-only y OAuth con Google y GitHub.
+            </li>
+          </ul>
+          <p class="stack">
+            <span>React</span> <span>TypeScript</span> <span>Django</span>
+            <span>PostgreSQL</span> <span>Redis</span> <span>Docker</span>
+            <span>Nginx</span> <span>Azure</span>
+          </p>
+        </article>
+
+        <article class="entry">
+          <div class="eh">
+            <h3>
+              <a href="https://pgr866.github.io/my-app"
+                >Portfolio y notas<svg class="i ext"><use href="#i-ext" /></svg
+              ></a>
+            </h3>
+            <span class="meta">Web personal · en producción</span>
+          </div>
+          <ul class="pts">
+            <li>
+              Next.js exportado como sitio estático a GitHub Pages; solo se
+              despliega si la CI (lint, tipos, formato y build) pasa en main.
+            </li>
+            <li>
+              Actions fijadas por SHA, permisos mínimos por job, Dependabot y
+              Dev Container con Docker Compose.
+            </li>
+          </ul>
+          <p class="stack">
+            <span>Next.js</span> <span>TypeScript</span>
+            <span>GitHub Actions</span> <span>GitHub Pages</span>
+            <span>Docker</span>
+          </p>
+        </article>
+      </section>
+
+      <section>
+        <h2>Experiencia</h2>
+
+        <article class="entry">
+          <div class="eh">
+            <h3>
+              Ingeniero Full Stack <span class="at">· DEVyond</span>
+              <span class="kind">· Prácticas, remoto</span>
+            </h3>
+            <span class="meta">sep. 2026 – nov. 2026</span>
+          </div>
+          <ul class="pts">
+            <li>
+              Desarrollo de interfaces y componentes web con Next.js y
+              TypeScript.
+            </li>
+            <li>
+              Integración de backend y bases de datos con Supabase y Payload
+              CMS, en un equipo ágil en remoto.
+            </li>
+          </ul>
+        </article>
+
+        <article class="entry">
+          <div class="eh">
+            <h3>
+              Desarrollador Front-End <span class="at">· Trainingym</span>
+              <span class="kind">· Prácticas, Almería (híbrido)</span>
+            </h3>
+            <span class="meta">feb. 2025 – abr. 2025</span>
+          </div>
+          <ul class="pts">
+            <li>
+              Desarrollo de interfaces y componentes web con AngularJS y
+              TypeScript.
+            </li>
+            <li>
+              Gestión de tareas en Azure DevOps y Jira, participando en todo el
+              ciclo de vida del software con metodologías ágiles.
+            </li>
+          </ul>
+        </article>
+      </section>
+
+      <div class="cols">
+        <section>
+          <h2>Formación</h2>
+          <article class="entry">
+            <div class="eh">
+              <h3>Máster en Ingeniería Informática</h3>
+              <span class="meta">sep. 2025 – feb. 2027</span>
+            </div>
+            <p class="sub">
+              Universidad de Almería · Especialidad en Desarrollo Web/Móvil
+            </p>
+          </article>
+          <article class="entry">
+            <div class="eh">
+              <h3>Grado en Ingeniería Informática</h3>
+              <span class="meta">sep. 2021 – jun. 2025</span>
+            </div>
+            <p class="sub">
+              Universidad de Almería · Especialidad en Ingeniería del Software ·
+              Nota media: 8,02/10
+            </p>
+          </article>
+        </section>
+
+        <section>
+          <h2>Idiomas</h2>
+          <ul class="langs">
+            <li><b>Español</b> · Nativo</li>
+            <li>
+              <b>Inglés</b> · Avanzado<br /><span class="sub"
+                >Cambridge B2 First (FCE)</span
+              >
+            </li>
+          </ul>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
