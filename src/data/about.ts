@@ -76,16 +76,18 @@ export const aboutText = {
   ],
 };
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
+
 export const cvs = [
   {
     label: 'English',
     lang: 'en',
-    href: '/cv/Pablo-Gomez-Rivas-CV-EN.pdf',
+    href: `${basePath}/cv/Pablo-Gomez-Rivas-CV-EN.pdf`,
   },
   {
     label: 'Spanish',
     lang: 'es',
-    href: '/cv/Pablo-Gomez-Rivas-CV-ES.pdf',
+    href: `${basePath}/cv/Pablo-Gomez-Rivas-CV-ES.pdf`,
   },
 ];
 
